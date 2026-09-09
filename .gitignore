@@ -1,0 +1,13 @@
+/node_modules/
+/dist/
+/.next/
+/.vinext/
+/.wrangler/
+/work/
+/.env
+/.env.local
+/.dev.vars
+/sources/private/
+__pycache__/
+*.pyc
+*.tsbuildinfo

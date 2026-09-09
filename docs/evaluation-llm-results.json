@@ -1,0 +1,1266 @@
+{
+  "generated_at": "2026-09-09T22:01:50.422Z",
+  "as_of": "2026-09-09T12:00:00.000Z",
+  "corpus_hash": "b5a546b2573d3262879867b7c19f2745d4f4dea66b13b4a0f3fcdd4fa0a92231",
+  "corpus": {
+    "documents": 254,
+    "chunks": 254,
+    "graph_nodes": 254,
+    "graph_edges": 4270
+  },
+  "methodology": "25 authored questions run against the same retrieval pipeline plus local Qwen/llama.cpp. Latency includes local model calls and the 6.5-second output-validation fallback, but excludes browser/network-to-site time. Exact quotation support is automatic; semantic faithfulness still requires human review. This is a development set, not a held-out benchmark.",
+  "metrics": {
+    "status_accuracy": 1,
+    "relevant_source_recall": 1,
+    "correct_refusal": 1,
+    "verbatim_support": 1,
+    "semantic_faithfulness": null,
+    "p95_local_ms": 5035.92,
+    "graph_recall": 0.5712683150183151,
+    "vector_recall": 0.4915979853479853
+  },
+  "targets": {
+    "semantic_faithfulness": 0.95,
+    "retrieval_recall": 0.9,
+    "citation_coverage": 1,
+    "correct_refusal": 0.95,
+    "p95_end_to_end_ms": 8000
+  },
+  "cases": [
+    {
+      "question": "History of KT-101-TC-001",
+      "project": "WebOps",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "KT-101-TC-001"
+      ],
+      "retrieved_ids": [
+        "KT-101-TC-001",
+        "RUN-00003",
+        "RUN-00002",
+        "RUN-00007",
+        "RUN-00005",
+        "RUN-00004"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Test KT-101-TC-001, Login valid user - WebOps, belongs to WebOps. The supplied sample records 23 results: 16 passed, 5 failed, 2 skipped.",
+          "citation": 1,
+          "chunk_id": "KT-101-TC-001::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-101-TC-001, KT-101-TC-002, KT-101-TC-003, KT-101-TC-004, KT-101-TC-005, KT-101-TC-006, KT-101-TC-007, KT-101-TC-008.",
+          "citation": 2,
+          "chunk_id": "RUN-00003::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-101-TC-001, KT-101-TC-002, KT-101-TC-003, KT-101-TC-004.",
+          "citation": 3,
+          "chunk_id": "RUN-00002::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-101-TC-001, KT-101-TC-002, KT-101-TC-003, KT-101-TC-004, KT-101-TC-005, KT-101-TC-006, KT-101-TC-007, KT-101-TC-008, KT-101-TC-009, KT-101-TC-010, KT-101-TC-011, KT-101-TC-012, KT-101-TC-013, KT-101-TC-014, KT-101-TC-015, KT-101-TC-016.",
+          "citation": 4,
+          "chunk_id": "RUN-00007::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 5035.92,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "History of KT-202-TC-001",
+      "project": "Salesforce",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "KT-202-TC-001"
+      ],
+      "retrieved_ids": [
+        "KT-202-TC-001",
+        "RUN-00026",
+        "RUN-00031",
+        "RUN-00028",
+        "RUN-00029",
+        "RUN-00025"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Test KT-202-TC-001, Login valid user - Salesforce, belongs to Salesforce. The supplied sample records 24 results: 21 passed, 3 failed, 0 skipped.",
+          "citation": 1,
+          "chunk_id": "KT-202-TC-001::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-202-TC-001, KT-202-TC-002, KT-202-TC-003, KT-202-TC-004.",
+          "citation": 2,
+          "chunk_id": "RUN-00026::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-202-TC-001, KT-202-TC-002, KT-202-TC-003, KT-202-TC-004, KT-202-TC-005, KT-202-TC-006, KT-202-TC-007, KT-202-TC-008, KT-202-TC-009, KT-202-TC-010, KT-202-TC-011, KT-202-TC-012, KT-202-TC-013, KT-202-TC-014, KT-202-TC-015, KT-202-TC-016.",
+          "citation": 3,
+          "chunk_id": "RUN-00031::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-202-TC-001, KT-202-TC-002, KT-202-TC-003, KT-202-TC-004, KT-202-TC-005, KT-202-TC-006, KT-202-TC-007, KT-202-TC-008.",
+          "citation": 4,
+          "chunk_id": "RUN-00028::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 4832.04,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "History of KT-303-TC-001",
+      "project": "BSP Services",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "KT-303-TC-001"
+      ],
+      "retrieved_ids": [
+        "KT-303-TC-001",
+        "RUN-00053",
+        "RUN-00054",
+        "RUN-00051",
+        "RUN-00050",
+        "RUN-00052"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Test KT-303-TC-001, Login valid user - BSP Services, belongs to BSP Services. The supplied sample records 23 results: 17 passed, 6 failed, 0 skipped.",
+          "citation": 1,
+          "chunk_id": "KT-303-TC-001::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-303-TC-001, KT-303-TC-002, KT-303-TC-003, KT-303-TC-004, KT-303-TC-005, KT-303-TC-006, KT-303-TC-007, KT-303-TC-008, KT-303-TC-009, KT-303-TC-010, KT-303-TC-011, KT-303-TC-012.",
+          "citation": 2,
+          "chunk_id": "RUN-00053::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-303-TC-001, KT-303-TC-004, KT-303-TC-005, KT-303-TC-007, KT-303-TC-008, KT-303-TC-009, KT-303-TC-012.",
+          "citation": 3,
+          "chunk_id": "RUN-00054::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-303-TC-001, KT-303-TC-002, KT-303-TC-003, KT-303-TC-004, KT-303-TC-005, KT-303-TC-006, KT-303-TC-007, KT-303-TC-008.",
+          "citation": 4,
+          "chunk_id": "RUN-00051::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 5108.15,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "History of KT-404-TC-001",
+      "project": "MyKC",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "KT-404-TC-001"
+      ],
+      "retrieved_ids": [
+        "KT-404-TC-001",
+        "RUN-00073",
+        "RUN-00074",
+        "RUN-00077",
+        "RUN-00076",
+        "RUN-00075"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Test KT-404-TC-001, Login valid user - MyKC, belongs to MyKC. The supplied sample records 22 results: 21 passed, 0 failed, 1 skipped.",
+          "citation": 1,
+          "chunk_id": "KT-404-TC-001::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-404-TC-001, KT-404-TC-002, KT-404-TC-003, KT-404-TC-004.",
+          "citation": 2,
+          "chunk_id": "RUN-00073::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-404-TC-001, KT-404-TC-002, KT-404-TC-003, KT-404-TC-004.",
+          "citation": 3,
+          "chunk_id": "RUN-00074::0"
+        },
+        {
+          "text": "Test identifiers in this run: KT-404-TC-001, KT-404-TC-002, KT-404-TC-003, KT-404-TC-004, KT-404-TC-005, KT-404-TC-006, KT-404-TC-007, KT-404-TC-008, KT-404-TC-009, KT-404-TC-010, KT-404-TC-011, KT-404-TC-012.",
+          "citation": 4,
+          "chunk_id": "RUN-00077::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 4435.03,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "Which tests executed in RUN-00001?",
+      "project": "WebOps",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "RUN-00001",
+        "KT-101-TC-001"
+      ],
+      "retrieved_ids": [
+        "RUN-00001",
+        "KT-101-TC-004",
+        "KT-101-TC-003",
+        "KT-101-TC-002",
+        "KT-101-TC-001"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Test identifiers in this run: KT-101-TC-001, KT-101-TC-002, KT-101-TC-003, KT-101-TC-004.",
+          "citation": 1,
+          "chunk_id": "RUN-00001::0"
+        },
+        {
+          "text": "Test KT-101-TC-004, Create record - WebOps, belongs to WebOps. The supplied sample records 22 results: 20 passed, 2 failed, 0 skipped.",
+          "citation": 2,
+          "chunk_id": "KT-101-TC-004::0"
+        },
+        {
+          "text": "Test KT-101-TC-003, Search records - WebOps, belongs to WebOps. The supplied sample records 22 results: 19 passed, 2 failed, 1 skipped.",
+          "citation": 3,
+          "chunk_id": "KT-101-TC-003::0"
+        },
+        {
+          "text": "Test KT-101-TC-001, Login valid user - WebOps, belongs to WebOps. The supplied sample records 23 results: 16 passed, 5 failed, 2 skipped.",
+          "citation": 5,
+          "chunk_id": "KT-101-TC-001::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 2510.3,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "How many results are in RUN-00002?",
+      "project": "WebOps",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "RUN-00002"
+      ],
+      "retrieved_ids": [
+        "RUN-00002",
+        "KT-101-TC-003",
+        "KT-101-TC-001",
+        "KT-101-TC-002",
+        "KT-101-TC-004"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "It contains 4 results: 3 passed, 1 failed, 0 skipped.",
+          "citation": 1,
+          "chunk_id": "RUN-00002::0"
+        },
+        {
+          "text": "The supplied sample records 22 results: 19 passed, 2 failed, 1 skipped.",
+          "citation": 2,
+          "chunk_id": "KT-101-TC-003::0"
+        },
+        {
+          "text": "The supplied sample records 23 results: 16 passed, 5 failed, 2 skipped.",
+          "citation": 3,
+          "chunk_id": "KT-101-TC-001::0"
+        },
+        {
+          "text": "The supplied sample records 22 results: 21 passed, 0 failed, 1 skipped.",
+          "citation": 4,
+          "chunk_id": "KT-101-TC-002::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 1792.59,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What is the BSP testing strategy?",
+      "project": "BSP Services",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PROFILE-BSP-Services"
+      ],
+      "retrieved_ids": [
+        "RUN-00050",
+        "PROFILE-BSP-Services",
+        "KT-303-TC-003",
+        "KT-303-TC-001",
+        "RUN-00049",
+        "KT-303-TC-035"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Run RUN-00050 belongs to BSP Services.",
+          "citation": 1,
+          "chunk_id": "RUN-00050::0"
+        },
+        {
+          "text": "Testing strategy: Risk-Based.",
+          "citation": 2,
+          "chunk_id": "PROFILE-BSP-Services::0"
+        },
+        {
+          "text": "Test KT-303-TC-003, Search records - BSP Services, belongs to BSP Services.",
+          "citation": 3,
+          "chunk_id": "KT-303-TC-003::0"
+        },
+        {
+          "text": "Test KT-303-TC-001, Login valid user - BSP Services, belongs to BSP Services.",
+          "citation": 4,
+          "chunk_id": "KT-303-TC-001::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 1811.75,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What is the CXE testing strategy?",
+      "project": "CXE",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PROFILE-CXE"
+      ],
+      "retrieved_ids": [
+        "PROFILE-CXE"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Testing strategy: User Journey.",
+          "citation": 1,
+          "chunk_id": "PROFILE-CXE::0"
+        }
+      ],
+      "supported_claims": 1,
+      "total_claims": 1,
+      "latency_ms": 555.06,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What is the Salesforce business process testing strategy?",
+      "project": "Salesforce",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PROFILE-Salesforce"
+      ],
+      "retrieved_ids": [
+        "PROFILE-Salesforce",
+        "RUN-00026",
+        "KT-202-TC-004",
+        "KT-202-TC-001",
+        "KT-202-TC-002",
+        "KT-202-TC-003"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Testing strategy: User Journey / Business Process.",
+          "citation": 1,
+          "chunk_id": "PROFILE-Salesforce::0"
+        },
+        {
+          "text": "Run RUN-00026 belongs to Salesforce.",
+          "citation": 2,
+          "chunk_id": "RUN-00026::0"
+        },
+        {
+          "text": "Test KT-202-TC-004, Create record - Salesforce, belongs to Salesforce.",
+          "citation": 3,
+          "chunk_id": "KT-202-TC-004::0"
+        },
+        {
+          "text": "Test KT-202-TC-001, Login valid user - Salesforce, belongs to Salesforce.",
+          "citation": 4,
+          "chunk_id": "KT-202-TC-001::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 1967.82,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What is the SPROG hybrid testing strategy?",
+      "project": "SPROG",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PROFILE-SPROG"
+      ],
+      "retrieved_ids": [
+        "PROFILE-SPROG"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Testing strategy: API / UI / API_DB / UI_DB / HYBRID / E2E.",
+          "citation": 1,
+          "chunk_id": "PROFILE-SPROG::0"
+        }
+      ],
+      "supported_claims": 1,
+      "total_claims": 1,
+      "latency_ms": 786.24,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "How should I investigate flaky tests?",
+      "project": "All",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "DOC-FLAKINESS"
+      ],
+      "retrieved_ids": [
+        "DOC-FLAKINESS",
+        "KT-101-TC-035",
+        "RUN-00021",
+        "RUN-00017",
+        "RUN-00019",
+        "RUN-00024"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Potentially flaky tests are visible in Test Case Health Analysis and test-run detail reports.",
+          "citation": 1,
+          "chunk_id": "DOC-FLAKINESS::0"
+        },
+        {
+          "text": "The sample is_flaky flag occurs in 0 result rows.",
+          "citation": 2,
+          "chunk_id": "KT-101-TC-035::0"
+        },
+        {
+          "text": "Run RUN-00021 belongs to WebOps.",
+          "citation": 3,
+          "chunk_id": "RUN-00021::0"
+        },
+        {
+          "text": "Run RUN-00017 belongs to WebOps.",
+          "citation": 4,
+          "chunk_id": "RUN-00017::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 2256.53,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "How do Confluence inherited view restrictions work?",
+      "project": "All",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "DOC-CONFLUENCE-ACL"
+      ],
+      "retrieved_ids": [
+        "DOC-RESULTS",
+        "DOC-CONFLUENCE-ACL"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "A result detail view contains execution information and linked defects.",
+          "citation": 1,
+          "chunk_id": "DOC-RESULTS::0"
+        },
+        {
+          "text": "View restrictions on parent content are inherited by children.",
+          "citation": 2,
+          "chunk_id": "DOC-CONFLUENCE-ACL::0"
+        }
+      ],
+      "supported_claims": 2,
+      "total_claims": 2,
+      "latency_ms": 1395.76,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "How do Slack conversation scopes affect access?",
+      "project": "All",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "DOC-SLACK-SCOPES"
+      ],
+      "retrieved_ids": [
+        "DOC-SLACK-SCOPES",
+        "DOC-CONFLUENCE-ACL",
+        "KT-202-TC-025",
+        "KT-303-TC-025",
+        "KT-404-TC-025",
+        "KT-101-TC-025"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Test KT-101-TC-025, Access denied - WebOps, belongs to WebOps.",
+          "citation": 6,
+          "chunk_id": "KT-101-TC-025::0"
+        }
+      ],
+      "supported_claims": 1,
+      "total_claims": 1,
+      "latency_ms": 1642.92,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "How can I inspect TestOps execution artifacts?",
+      "project": "All",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "DOC-RESULTS"
+      ],
+      "retrieved_ids": [
+        "DOC-RESULTS",
+        "DOC-SLACK-SCOPES",
+        "DOC-FLAKINESS",
+        "PROFILE-WebOps",
+        "PROFILE-MyKC"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "Open the project's Reports area, select a test run and use its Test Results tab to inspect individual outcomes.",
+          "citation": 1,
+          "chunk_id": "DOC-RESULTS::0"
+        },
+        {
+          "text": "Slack Conversations API scopes filter which conversations an application can access.",
+          "citation": 2,
+          "chunk_id": "DOC-SLACK-SCOPES::0"
+        },
+        {
+          "text": "Katalon uses Probabilistic Flakiness Score (PFS), based on pass-to-fail transition patterns across execution history.",
+          "citation": 3,
+          "chunk_id": "DOC-FLAKINESS::0"
+        },
+        {
+          "text": "Review dimensions: Execution evidence, Missing strategy.",
+          "citation": 4,
+          "chunk_id": "PROFILE-WebOps::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 1989.64,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What are the ACs for KAT-1499?",
+      "project": "BSP Services",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 0.34,
+      "reason": "No accessible source matches every exact identifier in this question.",
+      "generation": "extractive"
+    },
+    {
+      "question": "Which tests cover KAT-1498?",
+      "project": "BSP Services",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 0.11,
+      "reason": "No accessible source matches every exact identifier in this question.",
+      "generation": "extractive"
+    },
+    {
+      "question": "Analyze the DB mapping",
+      "project": "BSP Services",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 15.4,
+      "reason": "No sufficiently relevant authorized evidence was found. Add the missing approved source.",
+      "generation": "extractive"
+    },
+    {
+      "question": "Where is the Step Definition for the payment API?",
+      "project": "BSP Services",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 12.68,
+      "reason": "No sufficiently relevant authorized evidence was found. Add the missing approved source.",
+      "generation": "extractive"
+    },
+    {
+      "question": "Who approved PR-884?",
+      "project": "BSP Services",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 0.42,
+      "reason": "No accessible source matches every exact identifier in this question.",
+      "generation": "extractive"
+    },
+    {
+      "question": "What is the current status of KT-101-TC-001?",
+      "project": "WebOps",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [
+        "KT-101-TC-001",
+        "RUN-00003",
+        "RUN-00002",
+        "RUN-00004",
+        "RUN-00005",
+        "RUN-00001"
+      ],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 7.83,
+      "reason": "Only dated or freshness-unknown evidence is available; it cannot establish current behavior.",
+      "generation": "extractive"
+    },
+    {
+      "question": "History of KT-101-TC-001",
+      "project": "Salesforce",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 0.15,
+      "reason": "No accessible source matches every exact identifier in this question.",
+      "generation": "extractive"
+    },
+    {
+      "question": "Explain xylophone aardvark nebula",
+      "project": "All",
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "actual_status": "INSUFFICIENT_EVIDENCE",
+      "status_correct": true,
+      "expected_relevant_ids": [],
+      "retrieved_ids": [],
+      "recall": null,
+      "claims": [],
+      "supported_claims": 0,
+      "total_claims": 0,
+      "latency_ms": 13.17,
+      "reason": "No sufficiently relevant authorized evidence was found. Add the missing approved source.",
+      "generation": "extractive"
+    },
+    {
+      "question": "Teach me the CXE user journey testing strategy",
+      "project": "CXE",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PROFILE-CXE"
+      ],
+      "retrieved_ids": [
+        "DOC-SLACK-SCOPES",
+        "PROFILE-CXE"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "The ingestion principal's access must not be treated as every end user's access.",
+          "citation": 1,
+          "chunk_id": "DOC-SLACK-SCOPES::0"
+        },
+        {
+          "text": "Testing strategy: User Journey.",
+          "citation": 2,
+          "chunk_id": "PROFILE-CXE::0"
+        }
+      ],
+      "supported_claims": 2,
+      "total_claims": 2,
+      "latency_ms": 468,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What are the MyKC sample portfolio results?",
+      "project": "MyKC",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PORTFOLIO-KT-404"
+      ],
+      "retrieved_ids": [
+        "PORTFOLIO-KT-404",
+        "KT-404-TC-035",
+        "KT-404-TC-026",
+        "KT-404-TC-030",
+        "KT-404-TC-033",
+        "KT-404-TC-027"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "MyKC supplied CSV portfolio: 36 distinct automated test case identifiers, 24 runs, 515 test results.",
+          "citation": 1,
+          "chunk_id": "PORTFOLIO-KT-404::0"
+        },
+        {
+          "text": "The supplied sample records 8 results: 8 passed, 0 failed, 0 skipped.",
+          "citation": 2,
+          "chunk_id": "KT-404-TC-035::0"
+        },
+        {
+          "text": "The supplied sample records 9 results: 9 passed, 0 failed, 0 skipped.",
+          "citation": 3,
+          "chunk_id": "KT-404-TC-026::0"
+        },
+        {
+          "text": "The supplied sample records 7 results: 7 passed, 0 failed, 0 skipped.",
+          "citation": 4,
+          "chunk_id": "KT-404-TC-030::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 714.04,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    },
+    {
+      "question": "What are the BSP Services sample portfolio results?",
+      "project": "BSP Services",
+      "expected_status": "VERIFIED",
+      "actual_status": "VERIFIED",
+      "status_correct": true,
+      "expected_relevant_ids": [
+        "PORTFOLIO-KT-303"
+      ],
+      "retrieved_ids": [
+        "PORTFOLIO-KT-303",
+        "RUN-00050",
+        "KT-303-TC-032",
+        "KT-303-TC-035",
+        "KT-303-TC-029",
+        "KT-303-TC-025"
+      ],
+      "recall": 1,
+      "claims": [
+        {
+          "text": "BSP Services supplied CSV portfolio: 36 distinct automated test case identifiers, 24 runs, 513 test results.",
+          "citation": 1,
+          "chunk_id": "PORTFOLIO-KT-303::0"
+        },
+        {
+          "text": "Run RUN-00050 belongs to BSP Services.",
+          "citation": 2,
+          "chunk_id": "RUN-00050::0"
+        },
+        {
+          "text": "Test KT-303-TC-032, Token refresh - BSP Services, belongs to BSP Services.",
+          "citation": 3,
+          "chunk_id": "KT-303-TC-032::0"
+        },
+        {
+          "text": "Test KT-303-TC-035, Cross-project lookup - BSP Services, belongs to BSP Services.",
+          "citation": 4,
+          "chunk_id": "KT-303-TC-035::0"
+        }
+      ],
+      "supported_claims": 4,
+      "total_claims": 4,
+      "latency_ms": 696.96,
+      "reason": "Answer scoped to the retrieved source snapshot.",
+      "generation": "llm-constrained"
+    }
+  ],
+  "graphQueries": [
+    {
+      "question": "Which test cases executed in RUN-00049?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "RUN-00049",
+          "DOC-FLAKINESS",
+          "KT-303-TC-004",
+          "KT-303-TC-003",
+          "KT-303-TC-002",
+          "KT-303-TC-001"
+        ],
+        "recall": 1,
+        "latency_ms": 12.663699999997334
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00049",
+          "KT-303-TC-004",
+          "KT-303-TC-003",
+          "KT-303-TC-002",
+          "KT-303-TC-001"
+        ],
+        "recall": 1,
+        "latency_ms": 10.601699999999255
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00050?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-003"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "RUN-00050",
+          "DOC-FLAKINESS",
+          "KT-303-TC-003",
+          "KT-303-TC-001",
+          "RUN-00049",
+          "PORTFOLIO-KT-303"
+        ],
+        "recall": 1,
+        "latency_ms": 9.471299999997427
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00050",
+          "KT-303-TC-003",
+          "KT-303-TC-001"
+        ],
+        "recall": 1,
+        "latency_ms": 8.426399999996647
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00051?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-006",
+        "KT-303-TC-007",
+        "KT-303-TC-008"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "RUN-00051",
+          "KT-303-TC-008",
+          "RUN-00052",
+          "KT-303-TC-005",
+          "KT-303-TC-003"
+        ],
+        "recall": 0.375,
+        "latency_ms": 6.317400000007183
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00051",
+          "KT-303-TC-008",
+          "KT-303-TC-005",
+          "KT-303-TC-003",
+          "KT-303-TC-004",
+          "KT-303-TC-006"
+        ],
+        "recall": 0.625,
+        "latency_ms": 8.310100000002421
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00052?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-006",
+        "KT-303-TC-007",
+        "KT-303-TC-008"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "RUN-00052",
+          "RUN-00051",
+          "KT-303-TC-004",
+          "KT-303-TC-005",
+          "KT-303-TC-003"
+        ],
+        "recall": 0.375,
+        "latency_ms": 16.66939999999886
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00052",
+          "KT-303-TC-004",
+          "KT-303-TC-005",
+          "KT-303-TC-003",
+          "KT-303-TC-008",
+          "KT-303-TC-006"
+        ],
+        "recall": 0.625,
+        "latency_ms": 9.25619999999617
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00053?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-006",
+        "KT-303-TC-007",
+        "KT-303-TC-008",
+        "KT-303-TC-009",
+        "KT-303-TC-010",
+        "KT-303-TC-011",
+        "KT-303-TC-012"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "KT-303-TC-012",
+          "KT-303-TC-003",
+          "KT-303-TC-004",
+          "KT-303-TC-007",
+          "KT-303-TC-005"
+        ],
+        "recall": 0.4166666666666667,
+        "latency_ms": 8.145500000005995
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00053",
+          "KT-303-TC-012",
+          "KT-303-TC-003",
+          "KT-303-TC-004",
+          "KT-303-TC-007",
+          "KT-303-TC-005"
+        ],
+        "recall": 0.4166666666666667,
+        "latency_ms": 9.589500000001863
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00054?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-007",
+        "KT-303-TC-008",
+        "KT-303-TC-009",
+        "KT-303-TC-012"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "RUN-00054",
+          "KT-303-TC-005",
+          "KT-303-TC-001",
+          "KT-303-TC-007",
+          "KT-303-TC-009"
+        ],
+        "recall": 0.5714285714285714,
+        "latency_ms": 10.765699999996286
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00054",
+          "KT-303-TC-005",
+          "KT-303-TC-001",
+          "KT-303-TC-007",
+          "KT-303-TC-009",
+          "KT-303-TC-004"
+        ],
+        "recall": 0.7142857142857143,
+        "latency_ms": 12.478600000002189
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00055?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-006",
+        "KT-303-TC-007",
+        "KT-303-TC-008",
+        "KT-303-TC-009",
+        "KT-303-TC-010",
+        "KT-303-TC-011",
+        "KT-303-TC-012",
+        "KT-303-TC-013",
+        "KT-303-TC-014",
+        "KT-303-TC-015",
+        "KT-303-TC-016"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "KT-303-TC-010",
+          "KT-303-TC-004",
+          "KT-303-TC-003",
+          "KT-303-TC-013",
+          "KT-303-TC-007"
+        ],
+        "recall": 0.3125,
+        "latency_ms": 6.647600000003877
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00055",
+          "KT-303-TC-010",
+          "KT-303-TC-004",
+          "KT-303-TC-003",
+          "KT-303-TC-013",
+          "KT-303-TC-007"
+        ],
+        "recall": 0.3125,
+        "latency_ms": 6.152000000001863
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00056?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-007",
+        "KT-303-TC-008",
+        "KT-303-TC-009",
+        "KT-303-TC-011",
+        "KT-303-TC-012",
+        "KT-303-TC-013",
+        "KT-303-TC-014",
+        "KT-303-TC-015"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "RUN-00056",
+          "KT-303-TC-004",
+          "KT-303-TC-009",
+          "KT-303-TC-003",
+          "KT-303-TC-012"
+        ],
+        "recall": 0.3076923076923077,
+        "latency_ms": 17.935499999999593
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00056",
+          "KT-303-TC-004",
+          "KT-303-TC-009",
+          "KT-303-TC-003",
+          "KT-303-TC-012",
+          "KT-303-TC-014"
+        ],
+        "recall": 0.38461538461538464,
+        "latency_ms": 7.683100000002014
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00057?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-001",
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-004",
+        "KT-303-TC-005",
+        "KT-303-TC-006",
+        "KT-303-TC-007",
+        "KT-303-TC-008",
+        "KT-303-TC-009",
+        "KT-303-TC-010",
+        "KT-303-TC-011",
+        "KT-303-TC-012",
+        "KT-303-TC-013",
+        "KT-303-TC-014",
+        "KT-303-TC-015",
+        "KT-303-TC-016",
+        "KT-303-TC-017",
+        "KT-303-TC-018",
+        "KT-303-TC-019",
+        "KT-303-TC-020"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "KT-303-TC-018",
+          "KT-303-TC-005",
+          "KT-303-TC-010",
+          "KT-303-TC-004",
+          "KT-303-TC-003"
+        ],
+        "recall": 0.25,
+        "latency_ms": 10.391799999997602
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00057",
+          "KT-303-TC-018",
+          "KT-303-TC-005",
+          "KT-303-TC-010",
+          "KT-303-TC-004",
+          "KT-303-TC-003"
+        ],
+        "recall": 0.25,
+        "latency_ms": 9.866399999998976
+      }
+    },
+    {
+      "question": "Which test cases executed in RUN-00058?",
+      "project": "BSP Services",
+      "expected_related_ids": [
+        "KT-303-TC-002",
+        "KT-303-TC-003",
+        "KT-303-TC-006",
+        "KT-303-TC-007",
+        "KT-303-TC-008",
+        "KT-303-TC-009",
+        "KT-303-TC-010",
+        "KT-303-TC-011",
+        "KT-303-TC-012",
+        "KT-303-TC-013",
+        "KT-303-TC-014",
+        "KT-303-TC-018",
+        "KT-303-TC-019"
+      ],
+      "vector": {
+        "retrieved_ids": [
+          "DOC-FLAKINESS",
+          "RUN-00058",
+          "KT-303-TC-010",
+          "KT-303-TC-009",
+          "KT-303-TC-003",
+          "KT-303-TC-018"
+        ],
+        "recall": 0.3076923076923077,
+        "latency_ms": 9.961699999999837
+      },
+      "graph": {
+        "retrieved_ids": [
+          "RUN-00058",
+          "KT-303-TC-010",
+          "KT-303-TC-009",
+          "KT-303-TC-003",
+          "KT-303-TC-018",
+          "KT-303-TC-011"
+        ],
+        "recall": 0.38461538461538464,
+        "latency_ms": 16.17569999999978
+      }
+    }
+  ],
+  "model": "qei-local",
+  "model_note": "Measured with a configured model, including validated-output fallback; inspect generation per case."
+}

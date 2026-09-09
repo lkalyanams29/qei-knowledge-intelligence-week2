@@ -1,0 +1,8 @@
+{
+ "BSP Services":{"aliases":["BSP"],"type":"API","strategy":"Risk-Based","basis":"User-provided architecture identifies BSP Services as API and risk-based; BSP aliases BSP Services.","checks":["Requirement","Risk","API contract","Authentication","Negative coverage","DB validation","Regression"]},
+ "CXE":{"aliases":[],"type":"UI","strategy":"User Journey","basis":"User-provided architecture notes; no CXE executions supplied.","checks":["Requirement","Affected user journey","Journey coverage","Reusable objects","UI regression impact"]},
+ "Salesforce":{"aliases":[],"type":"UI","strategy":"User Journey / Business Process","basis":"User-provided architecture notes.","checks":["Requirement","User journey","Business process","Regression"]},
+ "SPROG":{"aliases":[],"type":"API + UI","strategy":"API / UI / API_DB / UI_DB / HYBRID / E2E","basis":"User-provided architecture notes; no SPROG executions supplied.","checks":["Requirement","API","UI","Database","End-to-end flow"]},
+ "WebOps":{"aliases":[],"type":"Not specified","strategy":"Not specified","basis":"Present in supplied CSV; not equated with CXE.","checks":["Execution evidence","Missing strategy"]},
+ "MyKC":{"aliases":[],"type":"Not specified","strategy":"Not specified","basis":"Present in supplied CSV; not equated with SPROG.","checks":["Execution evidence","Missing strategy"]}
+}
