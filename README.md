@@ -109,6 +109,10 @@ For another approved monthly CSV, preserve the previous source file, supply a me
 
 Reports: [baseline evaluation](docs/evaluation-report.md), [model evaluation](docs/evaluation-llm-report.md), [project documentation](docs/project-report.md), [demo guide](docs/demo-guide.md).
 
+Private application: [QEI Week 2 workspace](https://qei-knowledge-intelligence-week2.lkalyanams.chatgpt.site). Owner sign-in is required. This separate Week 2 site does not change the Week 1 site's name or access.
+
+Demo aid: [4-minute AI-narrated screenshot walkthrough](demo/QEI_Week2_Walkthrough_Draft.mp4), captured from actual local app interactions. This edited screenshot video is not the final continuous live recording required by the handout. Its narration and scene metadata are in `demo/walkthrough-manifest.json`; [submission status](docs/submission-status.md) identifies the remaining Google Doc and live-recording steps.
+
 ## Project layout
 
 | Location | Responsibility |
