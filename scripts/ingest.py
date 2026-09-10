@@ -26,6 +26,8 @@ def clean(text):
 def validate(doc):
     required = ["source_type","source_id","project","document_type","title","authoritative_level","updated_at","url","access_scope","owner","content"]
     if any(k not in doc for k in required): raise ValueError("Document missing required metadata")
+    for key in ("source_id", "project", "document_type", "title", "url", "owner", "content"):
+        if not isinstance(doc[key], str) or not doc[key].strip(): raise ValueError(f"Invalid or empty {key}")
     if doc["source_type"] not in SOURCES: raise ValueError("Unknown source type")
     if not isinstance(doc["authoritative_level"],int) or not 1<=doc["authoritative_level"]<=5: raise ValueError("Authority must be 1–5")
     if not (doc["access_scope"]=="public" or doc["access_scope"]==f"project:{doc['project']}"): raise ValueError("Invalid access scope")
@@ -34,10 +36,29 @@ def validate(doc):
     doc = dict(doc); doc["content"]=clean(doc["content"])
     if not doc["content"]: raise ValueError("Empty content")
     doc.setdefault("relationships",[]); doc.setdefault("facts",{})
+    doc.setdefault("synthetic",False)
+    doc.setdefault("dataset","user-supplied-sample" if doc["source_type"]=="testops" else "public-or-design-notes")
+    doc.setdefault("approval_status","observed")
     doc["id"]=doc["source_id"]
     doc["sha256"]=hashlib.sha256(doc["content"].encode()).hexdigest()
     doc["injection_flag"]=bool(re.search(r"ignore (all |your |previous )*instructions|reveal.*(secret|password)|system prompt",doc["content"],re.I))
     return doc
+
+def validate_relationships(docs):
+    by_id={d["id"]:d for d in docs}
+    for doc in docs:
+        for relation in doc["relationships"]:
+            if relation["target"] not in by_id: raise ValueError("Dangling graph relationship")
+            target=by_id[relation["target"]]
+            if target["access_scope"]!="public" and doc["access_scope"]!=target["access_scope"]:
+                raise ValueError("Source scope must inherit the restricted target's scope")
+            quote=relation.get("evidence_quote")
+            if not quote and not doc.get("source_rows"):
+                raise ValueError("Relationship requires exact source evidence or validated CSV row provenance")
+            if quote and (quote not in doc["content"] or relation.get("evidence_source_id")!=doc["id"]):
+                raise ValueError("Relationship evidence does not match its source")
+            if doc["synthetic"]!=target["synthetic"]:
+                raise ValueError("Synthetic links must not invent coverage of supplied records")
 
 def chunk(doc, size=240, overlap=35):
     words=doc["content"].split(); out=[]
@@ -101,8 +122,12 @@ def build(extra=None,size=240,output=None):
         docs.append({"source_type":"architecture","source_id":"PROFILE-"+name.replace(" ","-"),"project":name,"document_type":"project_profile","title":name+" QE strategy","content":f"User-provided design notes: {name} project type is {p['type']}. Testing strategy: {p['strategy']}. Review dimensions: {', '.join(p['checks'])}. {p['basis']} This is a design brief, not an approved business requirement or an implementation artifact.","authoritative_level":2,"updated_at":None,"url":REPO+"sources/qei-architecture.txt","access_scope":"public","owner":"Project author"})
     if extra:
         docs+=json.loads(Path(extra).read_text(encoding="utf-8"))
+    synthetic_folder=ROOT/"data/synthetic"
+    for export in sorted(synthetic_folder.glob("*.json")):
+        docs+=json.loads(export.read_text(encoding="utf-8"))
     docs=[validate(d) for d in docs]
     if len({d["id"] for d in docs})!=len(docs): raise ValueError("Duplicate source IDs: namespace exported IDs before ingesting")
+    validate_relationships(docs)
     chunks=[c for d in docs for c in chunk(d,size)]
     vocab=sorted({t for c in chunks for t in tokens(c["title"]+" "+c["content"])})
     lookup={t:i for i,t in enumerate(vocab)}
@@ -119,8 +144,9 @@ def build(extra=None,size=240,output=None):
     vectors/=np.maximum(np.linalg.norm(vectors,axis=1,keepdims=True),1e-12)
     for c,v in zip(chunks,vectors): c["vector"]=np.round(v,7).tolist()
     index={"version":1,"built_at":datetime.now(timezone.utc).isoformat(),"embedding":{"model":"corpus-trained TF-IDF / LSA","dimensions":dimensions,"vocab":vocab,"idf":np.round(idf,7).tolist(),"projection":np.round(projection,7).tolist(),"stop_words":sorted(STOP)},"chunking":{"words":size,"overlap":35,"strategy":"document-boundary word windows"},"stats":stats,"profiles":profiles,"documents":docs,"chunks":chunks,"average_length":sum(c["length"] for c in chunks)/len(chunks),"df":dict(zip(vocab,df.tolist()))}
-    index["corpus_hash"]=hashlib.sha256(json.dumps([(d["id"],d["sha256"]) for d in docs]).encode()).hexdigest()
-    out=Path(output) if output else ROOT/"lib/index.json";out.parent.mkdir(parents=True,exist_ok=True)
+    index["corpus_hash"]=hashlib.sha256(json.dumps(docs,sort_keys=True).encode()).hexdigest()
+    index["stats"]["synthetic_documents"]=sum(d["synthetic"] for d in docs)
+    out=Path(output) if output else ROOT/"data/index.json";out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(index,separators=(",",":")),encoding="utf-8")
     print(json.dumps({"documents":len(docs),"chunks":len(chunks),"dimensions":dimensions,"stats":stats,"output":str(out)}))
     return index

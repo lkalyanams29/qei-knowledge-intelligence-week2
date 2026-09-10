@@ -11,3 +11,10 @@
 __pycache__/
 *.pyc
 *.tsbuildinfo
+/.venv/
+/.streamlit/secrets.toml
+/data/index.json
+/data/vector-cache/
+/.pytest_cache/
+/legacy/sites/node_modules/
+/legacy/sites/dist/

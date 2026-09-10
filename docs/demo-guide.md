@@ -2,12 +2,12 @@
 
 Keep the submitted recording under five minutes. Use only the approved sample corpus, not private tabs, secrets or enterprise records.
 
-1. **0:00–0:30 — Objective and scope.** Show the landing page. Explain that this is the separate Week 2 QE knowledge assistant, with actual retrieval from approved CSV-derived records and design/public notes. Identify absent enterprise integrations.
-2. **0:30–1:20 — Answer and provenance.** Ask `Which tests executed in RUN-00001?`. Show the answer, cited records, exact source excerpt, original-source link and dated evidence. Describe the model configuration banner accurately.
-3. **1:20–1:50 — Safe fallback.** Ask `What are the ACs for KAT-1499?`. Explain that requirements were not supplied and the app refuses to invent them.
-4. **1:50–2:20 — Mentor Mode.** Select CXE, enable Mentor Mode and ask `What is the CXE testing strategy?`. Show the source-backed strategy, learning path and explicitly missing implementation evidence.
-5. **2:20–3:00 — Corpus and graph.** Show 254 records, 96-dimensional classical LSA embeddings and recorded test/run relationships. Explain that the graph does not infer Jira coverage from a test name.
-6. **3:00–3:45 — Evaluation.** Show 25 authored questions and 10 graph/vector comparisons. Distinguish exact-source support from unmeasured semantic faithfulness. State the measured model/fallback counts from the saved report.
-7. **3:45–4:30 — AI workflow and code.** Show the separate repository. Describe using Codex to build in slices, reconcile the CSV, run tests, fix the static prototype and invalid model outputs, and document the remaining integration work.
+1. **0:00–0:30 — Objective and scope.** Show the actual Streamlit app. Explain the separate Week 2 QE assistant and its Python/LangGraph/NetworkX/FAISS architecture. Identify the synthetic banner and absence of live enterprise connections.
+2. **0:30–1:20 — Three-hop answer and provenance.** Ask `Which execution outcome is linked to SYN-BSP-REQ-001?` with comparison enabled. Show the fictional run outcome, source export and workflow trace. Explain requirement → feature → test → execution.
+3. **1:20–2:00 — Authority conflict.** Ask `What confirmation window governs SYN-BSP-REQ-001 and what discussion conflicts?`. Show the approved 30-second decision versus the stale 15-second Slack proposal. Both are fictional records.
+4. **2:00–2:30 — Safe fallback.** Ask `What are the acceptance criteria for KAT-1499?`. Show refusal. Explain why synthetic data and old executions cannot prove current production state.
+5. **2:30–3:05 — Corpus and graph.** Show 326 source records, including 72 synthetic records. Explore the BSP requirement and highlight retrieved nodes. Change the graph control and return to the retained answer. Briefly show Mentor Mode's review checklist.
+6. **3:05–3:45 — Evaluation.** Show 10 varied paired comparisons and 15 safety cases. Distinguish source recall and exact quotation support from unmeasured semantic faithfulness. Discuss one vector retrieval miss and low gold-set precision.
+7. **3:45–4:30 — AI workflow and code.** Show the separate repository's reference-shaped Python files. Describe using Codex to review the example, clarify the migration, generate fictional linked data, implement the pipeline, fix date handling and test the UI. State the remaining live-connectors, identity and human-evaluation work.
 
-The report's 95% faithfulness and 8-second P95 are targets. Do not say enterprise APIs are connected or the hosted endpoint uses the laptop's local model. If recording the local LLM demo, keep the model service running and verify the configured-model banner before starting.
+The report's 95% faithfulness target is not a measured certification. Do not say enterprise APIs are connected or the old chatgpt.site URL runs this Python version. Default excerpt mode uses no model; optional model mode must be configured and verified separately. The existing `demo/QEI_Week2_Walkthrough_Draft.mp4` is an older React screenshot-narration draft, not this Streamlit live recording. Record the current application continuously and keep the submission under five minutes.

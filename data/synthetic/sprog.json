@@ -1,0 +1,400 @@
+[
+  {
+    "source_type": "jira",
+    "source_id": "SYN-SPROG-REQ-001",
+    "project": "SPROG",
+    "document_type": "requirement",
+    "title": "Entitlement Activation requirement",
+    "content": "Fictional SPROG requirement SYN-SPROG-REQ-001: consistent API and UI entitlement state. Acceptance criteria: the confirmation window is 30 seconds; invalid input must be rejected; an audit record must be retained. Release scope: September demo only.",
+    "authoritative_level": 5,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {
+      "confirmation_window_seconds": 30
+    },
+    "entity_id": "SPROG:confirmation-window",
+    "relationships": [],
+    "aliases": [
+      "SPROG Entitlement Activation requirement"
+    ]
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-SPROG-SPEC-001",
+    "project": "SPROG",
+    "document_type": "specification",
+    "title": "Entitlement Activation design",
+    "content": "The fictional SPROG design implements consistent API and UI entitlement state. The approved confirmation window is 30 seconds. A retry after the window must trigger a new validation; an earlier retry must return the original outcome. SYN-SPROG-SPEC-001 REFINES SYN-SPROG-REQ-001.",
+    "authoritative_level": 4,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-REQ-001",
+        "type": "REFINES",
+        "evidence_source_id": "SYN-SPROG-SPEC-001",
+        "evidence_quote": "SYN-SPROG-SPEC-001 REFINES SYN-SPROG-REQ-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation design"
+    ]
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-SPROG-MAP-001",
+    "project": "SPROG",
+    "document_type": "database_mapping",
+    "title": "Entitlement Activation database mapping",
+    "content": "The fictional SPROG validation maps to entitlement.activation_state. Verify one audit row per request and never store access tokens in the audit payload. This is an invented schema, not an enterprise database. SYN-SPROG-MAP-001 DETAILS SYN-SPROG-SPEC-001.",
+    "authoritative_level": 4,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-SPEC-001",
+        "type": "DETAILS",
+        "evidence_source_id": "SYN-SPROG-MAP-001",
+        "evidence_quote": "SYN-SPROG-MAP-001 DETAILS SYN-SPROG-SPEC-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation database mapping"
+    ]
+  },
+  {
+    "source_type": "bitbucket",
+    "source_id": "SYN-SPROG-PR-001",
+    "project": "SPROG",
+    "document_type": "pull_request",
+    "title": "Entitlement Activation implementation review",
+    "content": "Fictional pull request SYN-SPROG-PR-001 implements consistent API and UI entitlement state. Theo Diaz approved the change. Changed files: src/sprog/validation.py and tests/sprog/confirmation.feature. Review decision: approved for the demo branch. SYN-SPROG-PR-001 IMPLEMENTS SYN-SPROG-REQ-001. SYN-SPROG-PR-001 APPROVED_BY SYN-SPROG-PERSON-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-REQ-001",
+        "type": "IMPLEMENTS",
+        "evidence_source_id": "SYN-SPROG-PR-001",
+        "evidence_quote": "SYN-SPROG-PR-001 IMPLEMENTS SYN-SPROG-REQ-001."
+      },
+      {
+        "target": "SYN-SPROG-PERSON-001",
+        "type": "APPROVED_BY",
+        "evidence_source_id": "SYN-SPROG-PR-001",
+        "evidence_quote": "SYN-SPROG-PR-001 APPROVED_BY SYN-SPROG-PERSON-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation implementation review"
+    ]
+  },
+  {
+    "source_type": "katalon",
+    "source_id": "SYN-SPROG-FEATURE-001",
+    "project": "SPROG",
+    "document_type": "automation_source",
+    "title": "Entitlement Activation Gherkin feature",
+    "content": "Fictional feature file tests/sprog/confirmation.feature. Scenario: consistent API and UI entitlement state. Given a valid request, when confirmation is retried within 30 seconds, then exactly one audit row exists. Negative scenario: invalid input is rejected. SYN-SPROG-FEATURE-001 COVERS SYN-SPROG-REQ-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-REQ-001",
+        "type": "COVERS",
+        "evidence_source_id": "SYN-SPROG-FEATURE-001",
+        "evidence_quote": "SYN-SPROG-FEATURE-001 COVERS SYN-SPROG-REQ-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation Gherkin feature"
+    ]
+  },
+  {
+    "source_type": "bitbucket",
+    "source_id": "SYN-SPROG-STEP-001",
+    "project": "SPROG",
+    "document_type": "step_definition",
+    "title": "Entitlement Activation step definitions",
+    "content": "Fictional step definition src/sprog/steps.py binds the confirmation scenario to assert_single_audit_row(request_id). The helper checks entitlement.activation_state using a read-only database fixture. No executable production code is provided. SYN-SPROG-STEP-001 BINDS SYN-SPROG-FEATURE-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-FEATURE-001",
+        "type": "BINDS",
+        "evidence_source_id": "SYN-SPROG-STEP-001",
+        "evidence_quote": "SYN-SPROG-STEP-001 BINDS SYN-SPROG-FEATURE-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation step definitions"
+    ]
+  },
+  {
+    "source_type": "katalon",
+    "source_id": "SYN-SPROG-TEST-001",
+    "project": "SPROG",
+    "document_type": "test_case",
+    "title": "Entitlement Activation regression test",
+    "content": "Synthetic automated test SYN-SPROG-TEST-001 checks consistent API and UI entitlement state, the 30-second confirmation boundary and invalid input. It traces to the demo requirement, not to a test identifier in the supplied CSV. SYN-SPROG-TEST-001 AUTOMATES SYN-SPROG-FEATURE-001. SYN-SPROG-TEST-001 VALIDATES SYN-SPROG-MAP-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-FEATURE-001",
+        "type": "AUTOMATES",
+        "evidence_source_id": "SYN-SPROG-TEST-001",
+        "evidence_quote": "SYN-SPROG-TEST-001 AUTOMATES SYN-SPROG-FEATURE-001."
+      },
+      {
+        "target": "SYN-SPROG-MAP-001",
+        "type": "VALIDATES",
+        "evidence_source_id": "SYN-SPROG-TEST-001",
+        "evidence_quote": "SYN-SPROG-TEST-001 VALIDATES SYN-SPROG-MAP-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation regression test"
+    ]
+  },
+  {
+    "source_type": "testops",
+    "source_id": "SYN-SPROG-RUN-001",
+    "project": "SPROG",
+    "document_type": "run",
+    "title": "Entitlement Activation demo execution",
+    "content": "Synthetic execution SYN-SPROG-RUN-001 ran SYN-SPROG-TEST-001 on 2026-09-08 in demo-staging. Outcome: PASSED. Duration: 42 seconds. Recorded failure category: none recorded. This fictional result does not change the supplied CSV metrics. SYN-SPROG-RUN-001 EXECUTES SYN-SPROG-TEST-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {
+      "status": "PASSED",
+      "failure_category": "none recorded"
+    },
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-TEST-001",
+        "type": "EXECUTES",
+        "evidence_source_id": "SYN-SPROG-RUN-001",
+        "evidence_quote": "SYN-SPROG-RUN-001 EXECUTES SYN-SPROG-TEST-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation demo execution"
+    ]
+  },
+  {
+    "source_type": "slack",
+    "source_id": "SYN-SPROG-CHAT-001",
+    "project": "SPROG",
+    "document_type": "discussion",
+    "title": "Entitlement Activation earlier discussion",
+    "content": "Earlier fictional Slack discussion: the proposed confirmation window is 15 seconds. This proposal was not approved. Do not treat this discussion as the release requirement. SYN-SPROG-CHAT-001 DISCUSSES SYN-SPROG-REQ-001.",
+    "authoritative_level": 1,
+    "updated_at": "2026-07-01T12:00:00Z",
+    "created_at": "2026-07-01T12:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "superseded",
+    "version": 1,
+    "facts": {
+      "confirmation_window_seconds": 15
+    },
+    "entity_id": "SPROG:confirmation-window",
+    "relationships": [
+      {
+        "target": "SYN-SPROG-REQ-001",
+        "type": "DISCUSSES",
+        "evidence_source_id": "SYN-SPROG-CHAT-001",
+        "evidence_quote": "SYN-SPROG-CHAT-001 DISCUSSES SYN-SPROG-REQ-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation earlier discussion"
+    ]
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-SPROG-DECISION-001",
+    "project": "SPROG",
+    "document_type": "decision",
+    "title": "Entitlement Activation approved decision",
+    "content": "Theo Diaz approved a 30-second confirmation window for fictional SPROG on September 8. This supersedes the earlier 15-second Slack proposal. The design and requirement are authoritative for this demo release. SYN-SPROG-DECISION-001 SUPERSEDES SYN-SPROG-CHAT-001. SYN-SPROG-DECISION-001 GOVERNS SYN-SPROG-REQ-001. SYN-SPROG-DECISION-001 APPROVED_BY SYN-SPROG-PERSON-001.",
+    "authoritative_level": 5,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {
+      "confirmation_window_seconds": 30
+    },
+    "entity_id": "SPROG:confirmation-window",
+    "relationships": [
+      {
+        "target": "SYN-SPROG-CHAT-001",
+        "type": "SUPERSEDES",
+        "evidence_source_id": "SYN-SPROG-DECISION-001",
+        "evidence_quote": "SYN-SPROG-DECISION-001 SUPERSEDES SYN-SPROG-CHAT-001."
+      },
+      {
+        "target": "SYN-SPROG-REQ-001",
+        "type": "GOVERNS",
+        "evidence_source_id": "SYN-SPROG-DECISION-001",
+        "evidence_quote": "SYN-SPROG-DECISION-001 GOVERNS SYN-SPROG-REQ-001."
+      },
+      {
+        "target": "SYN-SPROG-PERSON-001",
+        "type": "APPROVED_BY",
+        "evidence_source_id": "SYN-SPROG-DECISION-001",
+        "evidence_quote": "SYN-SPROG-DECISION-001 APPROVED_BY SYN-SPROG-PERSON-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation approved decision"
+    ]
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-SPROG-PERSON-001",
+    "project": "SPROG",
+    "document_type": "person",
+    "title": "Theo Diaz QE ownership",
+    "content": "Theo Diaz is a fictional QE lead for SPROG. Skills: API validation, test design and failure triage. Contact the project QE owner to confirm missing release evidence; no real contact details are supplied. SYN-SPROG-PERSON-001 OWNS SYN-SPROG-REQ-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-REQ-001",
+        "type": "OWNS",
+        "evidence_source_id": "SYN-SPROG-PERSON-001",
+        "evidence_quote": "SYN-SPROG-PERSON-001 OWNS SYN-SPROG-REQ-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Theo Diaz QE ownership"
+    ]
+  },
+  {
+    "source_type": "jira",
+    "source_id": "SYN-SPROG-DEFECT-001",
+    "project": "SPROG",
+    "document_type": "defect",
+    "title": "Entitlement Activation triage record",
+    "content": "Fictional triage for SYN-SPROG-RUN-001: outcome PASSED; cause none recorded. A passing run is not proof that all product requirements are covered. Triage owner: Theo Diaz. Production impact is unknown. SYN-SPROG-DEFECT-001 ANALYZES SYN-SPROG-RUN-001.",
+    "authoritative_level": 4,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/sprog.json",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-SPROG-RUN-001",
+        "type": "ANALYZES",
+        "evidence_source_id": "SYN-SPROG-DEFECT-001",
+        "evidence_quote": "SYN-SPROG-DEFECT-001 ANALYZES SYN-SPROG-RUN-001."
+      }
+    ],
+    "aliases": [
+      "SPROG Entitlement Activation triage record"
+    ]
+  }
+]

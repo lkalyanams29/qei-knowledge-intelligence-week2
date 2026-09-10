@@ -1,0 +1,922 @@
+{
+  "generated_at": "2026-09-10T11:47:30.370383+00:00",
+  "corpus_hash": "0af8586216fe8455d00a195f1fe56bb664c1cc6dc2ce19bc616d12f3d3442d91",
+  "as_of": "2026-09-10T12:00:00+00:00",
+  "comparison_queries": 10,
+  "safety_queries": 15,
+  "summary": {
+    "graph": {
+      "mean_recall_at_8": 1.0,
+      "mean_gold_precision_at_8": 0.2,
+      "verbatim_citation_support": 1.0,
+      "p95_local_ms": 172.4144999999998
+    },
+    "vector": {
+      "mean_recall_at_8": 0.7166666666666666,
+      "mean_gold_precision_at_8": 0.1375,
+      "verbatim_citation_support": 1.0,
+      "p95_local_ms": 30.358999999999998
+    },
+    "hybrid": {
+      "mean_recall_at_8": 0.6666666666666666,
+      "mean_gold_precision_at_8": 0.125,
+      "verbatim_citation_support": 1.0,
+      "p95_local_ms": 33.794999999999995
+    }
+  },
+  "safety_status_accuracy": 1.0,
+  "semantic_faithfulness": null,
+  "model_enabled": false,
+  "warmup_per_method": 1,
+  "limitations": [
+    "Authored development set, not held-out questions or human-rated faithfulness.",
+    "Recall uses source IDs; gold precision penalizes additional valid context not annotated in the small gold set.",
+    "All methods share source text including relationship assertions, LSA embeddings, top-k=8, and a 1400-word budget.",
+    "Vector ranking is dense-only; the same explicit-ID/scope/answerability checks and answer policy apply to all.",
+    "Graph additionally uses up to 3 hops, authority and question-type reranking. This compares full retrieval configurations, not graph topology in isolation.",
+    "Exact quotation support does not measure whether the quote answers the question, nor semantic faithfulness.",
+    "Latency uses one excluded warm-up per method and rotated method order; it excludes ingestion/embedding construction and hosting/network latency unless model mode is enabled."
+  ],
+  "comparisons": [
+    {
+      "id": "C01",
+      "category": "requirement-to-code",
+      "question": "Which pull request implements SYN-BSP-REQ-001?",
+      "gold": [
+        "SYN-BSP-PR-001"
+      ],
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-DECISION-001",
+          "SYN-BSP-FEATURE-001",
+          "SYN-BSP-MAP-001",
+          "SYN-BSP-PERSON-001",
+          "SYN-BSP-PR-001",
+          "SYN-BSP-REQ-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-BSP-STEP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 76.06,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-FEATURE-001",
+          "SYN-BSP-PR-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-PR-001",
+          "SYN-MYKC-PR-001",
+          "SYN-SF-PR-001",
+          "SYN-SPROG-PR-001",
+          "SYN-WEB-PR-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 25.57,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-FEATURE-001",
+          "SYN-BSP-PR-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-PR-001",
+          "SYN-MYKC-PR-001",
+          "SYN-SF-PR-001",
+          "SYN-SPROG-PR-001",
+          "SYN-WEB-PR-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 25.48,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C02",
+      "category": "three-hop-execution",
+      "question": "Which execution outcome is linked to SYN-BSP-REQ-001?",
+      "gold": [
+        "SYN-BSP-RUN-001"
+      ],
+      "vector": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "DOC-RESULTS",
+          "SYN-BSP-RUN-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-RUN-001",
+          "SYN-MYKC-RUN-001",
+          "SYN-SF-RUN-001",
+          "SYN-SPROG-RUN-001",
+          "SYN-WEB-RUN-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 25.51,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "DOC-RESULTS",
+          "SYN-BSP-RUN-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-RUN-001",
+          "SYN-MYKC-RUN-001",
+          "SYN-SF-RUN-001",
+          "SYN-SPROG-RUN-001",
+          "SYN-WEB-RUN-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 27.47,
+        "generation": "extractive"
+      },
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-CHAT-001",
+          "SYN-BSP-DECISION-001",
+          "SYN-BSP-FEATURE-001",
+          "SYN-BSP-PERSON-001",
+          "SYN-BSP-PR-001",
+          "SYN-BSP-REQ-001",
+          "SYN-BSP-RUN-001",
+          "SYN-BSP-SPEC-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 69.88,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C03",
+      "category": "database-design",
+      "question": "Which database column validates SYN-SF-REQ-001?",
+      "gold": [
+        "SYN-SF-MAP-001"
+      ],
+      "hybrid": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-MAP-001",
+          "SYN-CXE-MAP-001",
+          "SYN-CXE-TEST-001",
+          "SYN-MYKC-MAP-001",
+          "SYN-SF-MAP-001",
+          "SYN-SF-TEST-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-WEB-MAP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 27.79,
+        "generation": "extractive"
+      },
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-SF-DECISION-001",
+          "SYN-SF-FEATURE-001",
+          "SYN-SF-MAP-001",
+          "SYN-SF-PERSON-001",
+          "SYN-SF-PR-001",
+          "SYN-SF-REQ-001",
+          "SYN-SF-SPEC-001",
+          "SYN-SF-STEP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 74.15,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-MAP-001",
+          "SYN-CXE-MAP-001",
+          "SYN-MYKC-MAP-001",
+          "SYN-SF-MAP-001",
+          "SYN-SF-STEP-001",
+          "SYN-SF-TEST-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-WEB-MAP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 30.53,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C04",
+      "category": "approval-ownership",
+      "question": "Who approved SYN-WEB-PR-001?",
+      "gold": [
+        "SYN-WEB-PERSON-001",
+        "SYN-WEB-PR-001"
+      ],
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-WEB-CHAT-001",
+          "SYN-WEB-DECISION-001",
+          "SYN-WEB-FEATURE-001",
+          "SYN-WEB-MAP-001",
+          "SYN-WEB-PERSON-001",
+          "SYN-WEB-PR-001",
+          "SYN-WEB-REQ-001",
+          "SYN-WEB-SPEC-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 67.23,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [
+          "SYN-WEB-PERSON-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-PR-001",
+          "SYN-CXE-PR-001",
+          "SYN-MYKC-DECISION-001",
+          "SYN-MYKC-PR-001",
+          "SYN-SF-PR-001",
+          "SYN-SPROG-PR-001",
+          "SYN-WEB-DECISION-001",
+          "SYN-WEB-PR-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 26.19,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [
+          "SYN-WEB-PERSON-001"
+        ],
+        "retrieved_ids": [
+          "DOC-CONFLUENCE-ACL",
+          "SYN-BSP-PR-001",
+          "SYN-CXE-DECISION-001",
+          "SYN-MYKC-DECISION-001",
+          "SYN-MYKC-PR-001",
+          "SYN-SF-DECISION-001",
+          "SYN-WEB-DECISION-001",
+          "SYN-WEB-PR-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 25.49,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C05",
+      "category": "authority-conflict",
+      "question": "What confirmation window governs SYN-BSP-REQ-001 and what discussion conflicts?",
+      "gold": [
+        "SYN-BSP-REQ-001",
+        "SYN-BSP-CHAT-001",
+        "SYN-BSP-DECISION-001"
+      ],
+      "vector": {
+        "recall_at_8": 0.6666666666666666,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [
+          "SYN-BSP-REQ-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-CHAT-001",
+          "SYN-BSP-DECISION-001",
+          "SYN-CXE-CHAT-001",
+          "SYN-MYKC-CHAT-001",
+          "SYN-SF-CHAT-001",
+          "SYN-SF-DECISION-001",
+          "SYN-SPROG-CHAT-001",
+          "SYN-WEB-CHAT-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 29.67,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 0.6666666666666666,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [
+          "SYN-BSP-REQ-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-CHAT-001",
+          "SYN-BSP-DECISION-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-CHAT-001",
+          "SYN-MYKC-CHAT-001",
+          "SYN-SF-CHAT-001",
+          "SYN-SPROG-CHAT-001",
+          "SYN-WEB-CHAT-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 34.29,
+        "generation": "extractive"
+      },
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.375,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-CHAT-001",
+          "SYN-BSP-DECISION-001",
+          "SYN-BSP-FEATURE-001",
+          "SYN-BSP-PERSON-001",
+          "SYN-BSP-PR-001",
+          "SYN-BSP-REQ-001",
+          "SYN-BSP-SPEC-001",
+          "SYN-BSP-STEP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 70.14,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C06",
+      "category": "failure-triage",
+      "question": "What is the triage cause for SYN-MYKC-RUN-001?",
+      "gold": [
+        "SYN-MYKC-DEFECT-001",
+        "SYN-MYKC-RUN-001"
+      ],
+      "hybrid": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-DEFECT-001",
+          "SYN-CXE-DEFECT-001",
+          "SYN-CXE-PERSON-001",
+          "SYN-MYKC-DEFECT-001",
+          "SYN-MYKC-RUN-001",
+          "SYN-SF-DEFECT-001",
+          "SYN-SPROG-DEFECT-001",
+          "SYN-WEB-DEFECT-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 27.86,
+        "generation": "extractive"
+      },
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-MYKC-DEFECT-001",
+          "SYN-MYKC-FEATURE-001",
+          "SYN-MYKC-MAP-001",
+          "SYN-MYKC-REQ-001",
+          "SYN-MYKC-RUN-001",
+          "SYN-MYKC-SPEC-001",
+          "SYN-MYKC-STEP-001",
+          "SYN-MYKC-TEST-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 66.97,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-DEFECT-001",
+          "SYN-CXE-DEFECT-001",
+          "SYN-MYKC-DEFECT-001",
+          "SYN-MYKC-PERSON-001",
+          "SYN-MYKC-RUN-001",
+          "SYN-SF-DEFECT-001",
+          "SYN-SPROG-DEFECT-001",
+          "SYN-WEB-DEFECT-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 26.81,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C07",
+      "category": "automation-binding",
+      "question": "Which step definition implements the scenario tested by SYN-CXE-TEST-001?",
+      "gold": [
+        "SYN-CXE-STEP-001",
+        "SYN-CXE-FEATURE-001"
+      ],
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-CXE-DECISION-001",
+          "SYN-CXE-FEATURE-001",
+          "SYN-CXE-PR-001",
+          "SYN-CXE-REQ-001",
+          "SYN-CXE-RUN-001",
+          "SYN-CXE-SPEC-001",
+          "SYN-CXE-STEP-001",
+          "SYN-CXE-TEST-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 69.04,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [
+          "SYN-CXE-STEP-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-PR-001",
+          "SYN-CXE-FEATURE-001",
+          "SYN-CXE-RUN-001",
+          "SYN-CXE-TEST-001",
+          "SYN-MYKC-PR-001",
+          "SYN-SF-PR-001",
+          "SYN-SPROG-PR-001",
+          "SYN-WEB-PR-001"
+        ],
+        "claims": 0,
+        "valid_citations": 0,
+        "verbatim_citation_support": null,
+        "status": "INSUFFICIENT_EVIDENCE",
+        "latency_ms": 27.86,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 0.0,
+        "gold_precision_at_8": 0.0,
+        "missing_gold": [
+          "SYN-CXE-FEATURE-001",
+          "SYN-CXE-STEP-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-PR-001",
+          "SYN-CXE-PR-001",
+          "SYN-CXE-RUN-001",
+          "SYN-CXE-TEST-001",
+          "SYN-MYKC-PR-001",
+          "SYN-SF-PR-001",
+          "SYN-SPROG-PR-001",
+          "SYN-WEB-PR-001"
+        ],
+        "claims": 0,
+        "valid_citations": 0,
+        "verbatim_citation_support": null,
+        "status": "INSUFFICIENT_EVIDENCE",
+        "latency_ms": 28.98,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C08",
+      "category": "design-summary",
+      "question": "Describe the entitlement activation design and its retry validation.",
+      "gold": [
+        "SYN-SPROG-SPEC-001"
+      ],
+      "vector": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-SPEC-001",
+          "SYN-MYKC-SPEC-001",
+          "SYN-SF-SPEC-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-SPEC-001",
+          "SYN-SPROG-TEST-001",
+          "SYN-WEB-SPEC-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 29.99,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-BSP-SPEC-001",
+          "SYN-CXE-SPEC-001",
+          "SYN-MYKC-SPEC-001",
+          "SYN-SF-SPEC-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-PR-001",
+          "SYN-SPROG-SPEC-001",
+          "SYN-WEB-SPEC-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 33.19,
+        "generation": "extractive"
+      },
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-CXE-PERSON-001",
+          "SYN-CXE-SPEC-001",
+          "SYN-SPROG-DECISION-001",
+          "SYN-SPROG-FEATURE-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-PR-001",
+          "SYN-SPROG-REQ-001",
+          "SYN-SPROG-SPEC-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 72.7,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C09",
+      "category": "reverse-traceability",
+      "question": "Which requirement and database mapping are linked to SYN-SPROG-TEST-001?",
+      "gold": [
+        "SYN-SPROG-REQ-001",
+        "SYN-SPROG-MAP-001"
+      ],
+      "hybrid": {
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [
+          "SYN-SPROG-REQ-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-MAP-001",
+          "SYN-CXE-MAP-001",
+          "SYN-MYKC-MAP-001",
+          "SYN-SF-MAP-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-RUN-001",
+          "SYN-SPROG-TEST-001",
+          "SYN-WEB-MAP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 26.36,
+        "generation": "extractive"
+      },
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.25,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "SYN-SPROG-DECISION-001",
+          "SYN-SPROG-DEFECT-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-REQ-001",
+          "SYN-SPROG-RUN-001",
+          "SYN-SPROG-SPEC-001",
+          "SYN-SPROG-STEP-001",
+          "SYN-SPROG-TEST-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "CONFLICTING_EVIDENCE",
+        "latency_ms": 251.25,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [
+          "SYN-SPROG-REQ-001"
+        ],
+        "retrieved_ids": [
+          "SYN-BSP-MAP-001",
+          "SYN-CXE-MAP-001",
+          "SYN-MYKC-MAP-001",
+          "SYN-SF-MAP-001",
+          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-RUN-001",
+          "SYN-SPROG-TEST-001",
+          "SYN-WEB-MAP-001"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 30.15,
+        "generation": "extractive"
+      }
+    },
+    {
+      "id": "C10",
+      "category": "supplied-csv",
+      "question": "What is the history of KT-202-TC-001?",
+      "gold": [
+        "KT-202-TC-001"
+      ],
+      "graph": {
+        "recall_at_8": 1.0,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [],
+        "retrieved_ids": [
+          "KT-202-TC-001",
+          "PORTFOLIO-KT-202",
+          "RUN-00025",
+          "RUN-00026",
+          "RUN-00027",
+          "RUN-00028",
+          "RUN-00029",
+          "RUN-00030"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 67.96,
+        "generation": "extractive"
+      },
+      "vector": {
+        "recall_at_8": 0.0,
+        "gold_precision_at_8": 0.0,
+        "missing_gold": [
+          "KT-202-TC-001"
+        ],
+        "retrieved_ids": [
+          "KT-101-TC-012",
+          "KT-202-TC-012",
+          "KT-303-TC-012",
+          "KT-404-TC-012",
+          "RUN-00026",
+          "RUN-00028",
+          "RUN-00030",
+          "RUN-00031"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 26.43,
+        "generation": "extractive"
+      },
+      "hybrid": {
+        "recall_at_8": 0.0,
+        "gold_precision_at_8": 0.0,
+        "missing_gold": [
+          "KT-202-TC-001"
+        ],
+        "retrieved_ids": [
+          "KT-101-TC-012",
+          "KT-202-TC-012",
+          "KT-303-TC-012",
+          "KT-404-TC-012",
+          "RUN-00025",
+          "RUN-00026",
+          "RUN-00028",
+          "RUN-00030"
+        ],
+        "claims": 8,
+        "valid_citations": 8,
+        "verbatim_citation_support": 1.0,
+        "status": "EVIDENCE_FOUND",
+        "latency_ms": 23.73,
+        "generation": "extractive"
+      }
+    }
+  ],
+  "safety": [
+    {
+      "id": "S01",
+      "question": "What are the acceptance criteria for KAT-1499?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 7.2
+    },
+    {
+      "id": "S02",
+      "question": "What is the current production status of SYN-BSP-RUN-001?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 65.91
+    },
+    {
+      "id": "S03",
+      "question": "What is the current status of KT-101-TC-001?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 65.58
+    },
+    {
+      "id": "S04",
+      "question": "Which pull request implements SYN-BSP-REQ-001?",
+      "project": "Salesforce",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 5.91
+    },
+    {
+      "id": "S05",
+      "question": "Explain penguin migration in Antarctica",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 21.42
+    },
+    {
+      "id": "S06",
+      "question": "What confirmation window governs SYN-SF-REQ-001?",
+      "status": "CONFLICTING_EVIDENCE",
+      "actual": "CONFLICTING_EVIDENCE",
+      "passed": true,
+      "claims": 8,
+      "latency_ms": 64.79
+    },
+    {
+      "id": "S07",
+      "question": "Which step definition supports KT-101-TC-001?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 63.19
+    },
+    {
+      "id": "S08",
+      "question": "What does SYN-MYKC-RUN-001 show?",
+      "unavailable": [
+        "testops"
+      ],
+      "status": "SOURCE_UNAVAILABLE",
+      "actual": "SOURCE_UNAVAILABLE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 6.29
+    },
+    {
+      "id": "S09",
+      "question": "Find SYN-UNKNOWN-REQ-999",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 8.95
+    },
+    {
+      "id": "S10",
+      "question": "Show SYN-CXE-TEST-001",
+      "corpus": "Supplied",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 6.44
+    },
+    {
+      "id": "S11",
+      "question": "Which source proves all production requirements are covered?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 59.01
+    },
+    {
+      "id": "S12",
+      "question": "What is the approved database mapping for KAT-1498?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 5.74
+    },
+    {
+      "id": "S13",
+      "question": "What is the live TestOps pass rate today?",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 69.65
+    },
+    {
+      "id": "S14",
+      "question": "What is the status of SYN-BSP-RUN-001 and SYN-SF-RUN-001?",
+      "project": "BSP Services",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "actual": "INSUFFICIENT_EVIDENCE",
+      "passed": true,
+      "claims": 0,
+      "latency_ms": 6.6
+    },
+    {
+      "id": "S15",
+      "question": "Which Slack discussion conflicts with SYN-WEB-REQ-001?",
+      "status": "CONFLICTING_EVIDENCE",
+      "actual": "CONFLICTING_EVIDENCE",
+      "passed": true,
+      "claims": 8,
+      "latency_ms": 60.04
+    }
+  ]
+}

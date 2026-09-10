@@ -1,0 +1,400 @@
+[
+  {
+    "source_type": "jira",
+    "source_id": "SYN-BSP-REQ-001",
+    "project": "BSP Services",
+    "document_type": "requirement",
+    "title": "Payment Idempotency requirement",
+    "content": "Fictional BSP Services requirement SYN-BSP-REQ-001: duplicate payment rejection. Acceptance criteria: the confirmation window is 30 seconds; invalid input must be rejected; an audit record must be retained. Release scope: September demo only.",
+    "authoritative_level": 5,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {
+      "confirmation_window_seconds": 30
+    },
+    "entity_id": "BSP:confirmation-window",
+    "relationships": [],
+    "aliases": [
+      "BSP Services Payment Idempotency requirement"
+    ]
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-BSP-SPEC-001",
+    "project": "BSP Services",
+    "document_type": "specification",
+    "title": "Payment Idempotency design",
+    "content": "The fictional BSP Services design implements duplicate payment rejection. The approved confirmation window is 30 seconds. A retry after the window must trigger a new validation; an earlier retry must return the original outcome. SYN-BSP-SPEC-001 REFINES SYN-BSP-REQ-001.",
+    "authoritative_level": 4,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-REQ-001",
+        "type": "REFINES",
+        "evidence_source_id": "SYN-BSP-SPEC-001",
+        "evidence_quote": "SYN-BSP-SPEC-001 REFINES SYN-BSP-REQ-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency design"
+    ]
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-BSP-MAP-001",
+    "project": "BSP Services",
+    "document_type": "database_mapping",
+    "title": "Payment Idempotency database mapping",
+    "content": "The fictional BSP Services validation maps to payments.idempotency_key. Verify one audit row per request and never store access tokens in the audit payload. This is an invented schema, not an enterprise database. SYN-BSP-MAP-001 DETAILS SYN-BSP-SPEC-001.",
+    "authoritative_level": 4,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-SPEC-001",
+        "type": "DETAILS",
+        "evidence_source_id": "SYN-BSP-MAP-001",
+        "evidence_quote": "SYN-BSP-MAP-001 DETAILS SYN-BSP-SPEC-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency database mapping"
+    ]
+  },
+  {
+    "source_type": "bitbucket",
+    "source_id": "SYN-BSP-PR-001",
+    "project": "BSP Services",
+    "document_type": "pull_request",
+    "title": "Payment Idempotency implementation review",
+    "content": "Fictional pull request SYN-BSP-PR-001 implements duplicate payment rejection. Mira Chen approved the change. Changed files: src/bsp/validation.py and tests/bsp/confirmation.feature. Review decision: approved for the demo branch. SYN-BSP-PR-001 IMPLEMENTS SYN-BSP-REQ-001. SYN-BSP-PR-001 APPROVED_BY SYN-BSP-PERSON-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-REQ-001",
+        "type": "IMPLEMENTS",
+        "evidence_source_id": "SYN-BSP-PR-001",
+        "evidence_quote": "SYN-BSP-PR-001 IMPLEMENTS SYN-BSP-REQ-001."
+      },
+      {
+        "target": "SYN-BSP-PERSON-001",
+        "type": "APPROVED_BY",
+        "evidence_source_id": "SYN-BSP-PR-001",
+        "evidence_quote": "SYN-BSP-PR-001 APPROVED_BY SYN-BSP-PERSON-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency implementation review"
+    ]
+  },
+  {
+    "source_type": "katalon",
+    "source_id": "SYN-BSP-FEATURE-001",
+    "project": "BSP Services",
+    "document_type": "automation_source",
+    "title": "Payment Idempotency Gherkin feature",
+    "content": "Fictional feature file tests/bsp/confirmation.feature. Scenario: duplicate payment rejection. Given a valid request, when confirmation is retried within 30 seconds, then exactly one audit row exists. Negative scenario: invalid input is rejected. SYN-BSP-FEATURE-001 COVERS SYN-BSP-REQ-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-REQ-001",
+        "type": "COVERS",
+        "evidence_source_id": "SYN-BSP-FEATURE-001",
+        "evidence_quote": "SYN-BSP-FEATURE-001 COVERS SYN-BSP-REQ-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency Gherkin feature"
+    ]
+  },
+  {
+    "source_type": "bitbucket",
+    "source_id": "SYN-BSP-STEP-001",
+    "project": "BSP Services",
+    "document_type": "step_definition",
+    "title": "Payment Idempotency step definitions",
+    "content": "Fictional step definition src/bsp/steps.py binds the confirmation scenario to assert_single_audit_row(request_id). The helper checks payments.idempotency_key using a read-only database fixture. No executable production code is provided. SYN-BSP-STEP-001 BINDS SYN-BSP-FEATURE-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-FEATURE-001",
+        "type": "BINDS",
+        "evidence_source_id": "SYN-BSP-STEP-001",
+        "evidence_quote": "SYN-BSP-STEP-001 BINDS SYN-BSP-FEATURE-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency step definitions"
+    ]
+  },
+  {
+    "source_type": "katalon",
+    "source_id": "SYN-BSP-TEST-001",
+    "project": "BSP Services",
+    "document_type": "test_case",
+    "title": "Payment Idempotency regression test",
+    "content": "Synthetic automated test SYN-BSP-TEST-001 checks duplicate payment rejection, the 30-second confirmation boundary and invalid input. It traces to the demo requirement, not to a test identifier in the supplied CSV. SYN-BSP-TEST-001 AUTOMATES SYN-BSP-FEATURE-001. SYN-BSP-TEST-001 VALIDATES SYN-BSP-MAP-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-FEATURE-001",
+        "type": "AUTOMATES",
+        "evidence_source_id": "SYN-BSP-TEST-001",
+        "evidence_quote": "SYN-BSP-TEST-001 AUTOMATES SYN-BSP-FEATURE-001."
+      },
+      {
+        "target": "SYN-BSP-MAP-001",
+        "type": "VALIDATES",
+        "evidence_source_id": "SYN-BSP-TEST-001",
+        "evidence_quote": "SYN-BSP-TEST-001 VALIDATES SYN-BSP-MAP-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency regression test"
+    ]
+  },
+  {
+    "source_type": "testops",
+    "source_id": "SYN-BSP-RUN-001",
+    "project": "BSP Services",
+    "document_type": "run",
+    "title": "Payment Idempotency demo execution",
+    "content": "Synthetic execution SYN-BSP-RUN-001 ran SYN-BSP-TEST-001 on 2026-09-08 in demo-staging. Outcome: FAILED. Duration: 42 seconds. Recorded failure category: environment certificate expired. This fictional result does not change the supplied CSV metrics. SYN-BSP-RUN-001 EXECUTES SYN-BSP-TEST-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {
+      "status": "FAILED",
+      "failure_category": "environment certificate expired"
+    },
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-TEST-001",
+        "type": "EXECUTES",
+        "evidence_source_id": "SYN-BSP-RUN-001",
+        "evidence_quote": "SYN-BSP-RUN-001 EXECUTES SYN-BSP-TEST-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency demo execution"
+    ]
+  },
+  {
+    "source_type": "slack",
+    "source_id": "SYN-BSP-CHAT-001",
+    "project": "BSP Services",
+    "document_type": "discussion",
+    "title": "Payment Idempotency earlier discussion",
+    "content": "Earlier fictional Slack discussion: the proposed confirmation window is 15 seconds. This proposal was not approved. Do not treat this discussion as the release requirement. SYN-BSP-CHAT-001 DISCUSSES SYN-BSP-REQ-001.",
+    "authoritative_level": 1,
+    "updated_at": "2026-07-01T12:00:00Z",
+    "created_at": "2026-07-01T12:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "superseded",
+    "version": 1,
+    "facts": {
+      "confirmation_window_seconds": 15
+    },
+    "entity_id": "BSP:confirmation-window",
+    "relationships": [
+      {
+        "target": "SYN-BSP-REQ-001",
+        "type": "DISCUSSES",
+        "evidence_source_id": "SYN-BSP-CHAT-001",
+        "evidence_quote": "SYN-BSP-CHAT-001 DISCUSSES SYN-BSP-REQ-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency earlier discussion"
+    ]
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-BSP-DECISION-001",
+    "project": "BSP Services",
+    "document_type": "decision",
+    "title": "Payment Idempotency approved decision",
+    "content": "Mira Chen approved a 30-second confirmation window for fictional BSP Services on September 8. This supersedes the earlier 15-second Slack proposal. The design and requirement are authoritative for this demo release. SYN-BSP-DECISION-001 SUPERSEDES SYN-BSP-CHAT-001. SYN-BSP-DECISION-001 GOVERNS SYN-BSP-REQ-001. SYN-BSP-DECISION-001 APPROVED_BY SYN-BSP-PERSON-001.",
+    "authoritative_level": 5,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {
+      "confirmation_window_seconds": 30
+    },
+    "entity_id": "BSP:confirmation-window",
+    "relationships": [
+      {
+        "target": "SYN-BSP-CHAT-001",
+        "type": "SUPERSEDES",
+        "evidence_source_id": "SYN-BSP-DECISION-001",
+        "evidence_quote": "SYN-BSP-DECISION-001 SUPERSEDES SYN-BSP-CHAT-001."
+      },
+      {
+        "target": "SYN-BSP-REQ-001",
+        "type": "GOVERNS",
+        "evidence_source_id": "SYN-BSP-DECISION-001",
+        "evidence_quote": "SYN-BSP-DECISION-001 GOVERNS SYN-BSP-REQ-001."
+      },
+      {
+        "target": "SYN-BSP-PERSON-001",
+        "type": "APPROVED_BY",
+        "evidence_source_id": "SYN-BSP-DECISION-001",
+        "evidence_quote": "SYN-BSP-DECISION-001 APPROVED_BY SYN-BSP-PERSON-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency approved decision"
+    ]
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-BSP-PERSON-001",
+    "project": "BSP Services",
+    "document_type": "person",
+    "title": "Mira Chen QE ownership",
+    "content": "Mira Chen is a fictional QE lead for BSP Services. Skills: API validation, test design and failure triage. Contact the project QE owner to confirm missing release evidence; no real contact details are supplied. SYN-BSP-PERSON-001 OWNS SYN-BSP-REQ-001.",
+    "authoritative_level": 3,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "observed",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-REQ-001",
+        "type": "OWNS",
+        "evidence_source_id": "SYN-BSP-PERSON-001",
+        "evidence_quote": "SYN-BSP-PERSON-001 OWNS SYN-BSP-REQ-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Mira Chen QE ownership"
+    ]
+  },
+  {
+    "source_type": "jira",
+    "source_id": "SYN-BSP-DEFECT-001",
+    "project": "BSP Services",
+    "document_type": "defect",
+    "title": "Payment Idempotency triage record",
+    "content": "Fictional triage for SYN-BSP-RUN-001: outcome FAILED; cause environment certificate expired. A passing run is not proof that all product requirements are covered. Triage owner: Mira Chen. Production impact is unknown. SYN-BSP-DEFECT-001 ANALYZES SYN-BSP-RUN-001.",
+    "authoritative_level": 4,
+    "updated_at": "2026-09-08T14:00:00Z",
+    "created_at": "2026-09-01T09:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/main/data/synthetic/bsp.json",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-synthetic-v1",
+    "approval_status": "approved",
+    "version": 1,
+    "facts": {},
+    "entity_id": null,
+    "relationships": [
+      {
+        "target": "SYN-BSP-RUN-001",
+        "type": "ANALYZES",
+        "evidence_source_id": "SYN-BSP-DEFECT-001",
+        "evidence_quote": "SYN-BSP-DEFECT-001 ANALYZES SYN-BSP-RUN-001."
+      }
+    ],
+    "aliases": [
+      "BSP Services Payment Idempotency triage record"
+    ]
+  }
+]

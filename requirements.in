@@ -1,0 +1,8 @@
+# Human-maintained bounds. requirements.txt locks the tested full environment.
+streamlit>=1.50,<2
+langgraph>=1,<2
+langchain-openai>=1,<2
+networkx>=3.4,<4
+faiss-cpu>=1.10,<2
+numpy>=2,<3
+python-dotenv>=1,<2

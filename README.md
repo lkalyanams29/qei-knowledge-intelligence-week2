@@ -1,130 +1,118 @@
-# QEI Knowledge Intelligence
+# QEI Knowledge Intelligence — Week 2 GraphRAG
 
-A separate Week 2 project: a working, source-backed QE question-answering workspace with reproducible ingestion, classical dense embeddings, hybrid retrieval, recorded graph relationships, citations, safe abstention, and an optional constrained LLM answer step.
+A Python/Streamlit QE knowledge assistant over supplied and **explicitly synthetic** source records. It follows the module structure of the [Gen Academy GraphRAG reference](https://github.com/The-Gen-Academy/2C-Graph-RAG-for-Organizational-Knowledge), with original QE-domain data and a new implementation of the safety and retrieval improvements.
 
-This is independent of the Week 1 automation dashboard. It does **not** claim live access to Jira, Confluence, SharePoint, Bitbucket, Slack, Katalon repositories, or TestOps APIs. The UI explicitly identifies missing sources.
+**No live enterprise connectors are configured.** Jira, Confluence, SharePoint, Bitbucket, Slack, Katalon assets and TestOps are represented by file exports. Synthetic artifacts never establish real requirements, production status or coverage of the supplied CSV.
 
-## One liner
+## Run the Python app
 
-My RAG app helps Quality Engineers and new team members answer test-history, project-strategy, and QE-tool questions from 254 records derived from a supplied Katalon CSV, project architecture notes, and four public-documentation summaries in a web workspace, targeting at least 95% grounded semantic faithfulness and an 8-second P95 answer time.
-
-Those are targets, not certification. Automatic exact-quotation support is measured separately from human semantic faithfulness.
-
-## Try it
-
-Prerequisites: Node.js 22.13+, pnpm, Python 3.10+ with NumPy. The committed index allows running the app without rebuilding embeddings.
+Tested with Python 3.12. No API key is needed for the default cited-excerpt mode.
 
 ```sh
-pnpm install --frozen-lockfile
-pnpm dev --port 3012
-```
-
-Open `http://localhost:3012`. Try:
-
-- `Which tests executed in RUN-00001?` — recorded run-to-test relationships.
-- `History of KT-202-TC-001` — Salesforce source history.
-- `What is the CXE testing strategy?` — design-note provenance, not an implementation claim.
-- `What are the ACs for KAT-1499?` — refuses because requirements were not supplied.
-- `What is the current status of KT-101-TC-001?` — dated executions cannot establish today's status.
-
-Ask QE and Mentor Mode share the same retrieval and citation policy. Corpus and Evidence graph views reveal exactly what was indexed. Evaluation shows measured results rather than fabricated scores. A page-level `ask_qe` WebMCP action invokes the same visible workflow.
-
-## Real model generation
-
-By default the app returns exact cited excerpts. To activate the LLM step, put these values in an ignored `.dev.vars` file and restart development:
-
-```dotenv
-QEI_MODEL_BASE_URL=http://127.0.0.1:8092/v1
-QEI_MODEL_NAME=qei-local
-QEI_MODEL_API_KEY=
-QEI_TRUST_SITES_IDENTITY=false
-```
-
-The OpenAI-compatible endpoint must support structured JSON-schema outputs. The model selects up to four candidate source spans. The server validates the selected indices and returns the corresponding exact text and citations; it never accepts model-authored factual prose. A 6.5-second timeout or invalid output triggers a visibly labeled extractive fallback.
-
-For the recorded experiment, Qwen2.5-0.5B-Instruct Q4_K_M ran through the official llama.cpp Windows CPU runtime. Download into ignored local work files:
-
-```powershell
-./scripts/download-local-model.ps1
-./work/local-model/runtime/llama-server.exe -m ./work/local-model/qwen2.5-0.5b-instruct-q4_k_m.gguf --host 127.0.0.1 --port 8092 -c 4096 -t 4 --parallel 1
-```
-
-Model weights and executables are **not** in GitHub. For hosted generation, configure the three model environment values in the host's secret settings with an approved reachable endpoint. A laptop's localhost address will not work from the hosted application. Hosted default mode is source-excerpt answering until configured; no paid endpoint is selected automatically.
-
-## Rebuild and evaluate
-
-```sh
+python -m venv .venv
+# Windows PowerShell: ./.venv/Scripts/Activate.ps1
+# macOS/Linux: source .venv/bin/activate
 python -m pip install -r requirements.txt
+python -m data.mock_data
 python scripts/ingest.py
-python -m unittest discover -s tests -p 'test_*.py'
-pnpm test
-pnpm evaluate
-pnpm typecheck
-pnpm build
+python -m streamlit run ui.py
 ```
 
-Set `QEI_MODEL_BASE_URL`, `QEI_MODEL_NAME`, and optionally `QEI_MODEL_API_KEY` in the shell before `pnpm evaluate` to produce the separate model-inclusive report. Evaluation does not read `.dev.vars` automatically. An eval run overwrites its report with measured results, not expected values.
+Open the local URL printed by Streamlit. The first launch also builds the index if missing, from the included files only. Subsequent questions use the saved index; they do not retrieve or re-embed source history.
 
-## Data and architecture
+Try:
+
+- `Which execution outcome is linked to SYN-BSP-REQ-001?` — three-hop requirement → feature → test → execution.
+- `What confirmation window governs SYN-BSP-REQ-001 and what discussion conflicts?` — approved requirement versus stale Slack proposal.
+- `Which step definition implements the scenario tested by SYN-CXE-TEST-001?` — automation binding.
+- `Which database column validates SYN-SF-REQ-001?` — database mapping.
+- `What is the history of KT-202-TC-001?` — original CSV evidence.
+- `What are the acceptance criteria for KAT-1499?` — explicit missing-evidence fallback.
+
+Ask QE supports paired GraphRAG/vector answers, source citations, authority/freshness labels, conflict disclosure, and a stage-by-stage trace. Mentor Mode provides a project-specific review checklist, not invented facts. Corpus, Evidence graph and Evaluation tabs expose the actual inputs and measured results. Answers survive Streamlit widget reruns.
+
+## Repository structure
 
 ```text
-Approved CSV + design profiles + public notes + optional normalized exports
-  → Python validation, cleaning, deduplication, provenance
-  → 240-word document windows with 35-word overlap
-  → TF-IDF → corpus-trained 96-dimensional LSA vectors
-  → immutable server-side JSON document, vector and graph index
-  → scope filter → BM25 + vector fusion → authority/freshness ranking
-  → optional one-hop graph expansion → top 6 records
-  → exact evidence spans → optional LLM selection → validated citations
-  → Ask QE / Mentor Mode / Corpus / Graph / Evaluation
+data/
+  mock_data.py          deterministic synthetic-data generator
+  synthetic/*.json     seven source types across six projects
+  index.json           generated local index; ignored by Git
+graph_builder.py       NetworkX graph, entity linking, ACL filters, traversal
+graph_rag.py           staged LangGraph workflow and citation policy
+vector_rag.py          FAISS dense retrieval and BM25/hybrid baseline
+llm.py                 optional constrained LangChain model selection
+questions.py           10 varied comparison questions + 15 safety cases
+compare.py             reproducible evaluation and reports
+ui.py                  Streamlit application
+settings.py            scope, freshness and bounded query options
+logging_config.py      redacted structured operational logs
+scripts/ingest.py      source validation, chunking, embedding snapshot
+sources/               unchanged supplied CSV, design notes, public summaries
+config/                project profiles
+tests/                 ingestion, retrieval, safety and Streamlit AppTest tests
+docs/                  project report, evaluation, deployment and limitations
+legacy/sites/          preserved earlier React/Worker version; not the active app
 ```
 
-LSA is a real classical dense semantic representation fitted to this corpus, not a pretrained transformer embedding. Its vocabulary and projection are stored with the index and reused for queries. It is an inexpensive, reproducible POC choice with limited generalization; unseen vocabulary and paraphrases can fail.
+The primary app uses **Python + LangGraph + NetworkX + FAISS + Streamlit**, as requested. It does not require the old Node/pnpm workflow. The prior React version and its hosting manifest are preserved under `legacy/sites/`; its existing chatgpt.site deployment is unchanged. That hosting runtime cannot directly run a Streamlit Python server. See [Python deployment](docs/deployment.md).
 
-The original CSV has 2,063 results, 144 distinct test IDs, 96 runs, and four projects, observed May 26–August 15, 2026. Normalization produces 144 test histories, 96 run records, four portfolio records, six design profiles, and four public-documentation summaries: 254 documents/chunks and 4,270 directed links. See [corpus contract](docs/corpus-contract.md).
+## Datasets and provenance
 
-The index lives only in server code. Browser responses omit vectors and token statistics. The graph follows recorded test/run links; it does not invent Jira-to-code-to-test coverage.
+| Input | Records | Meaning |
+|---|---:|---|
+| Supplied Katalon CSV | 2,063 result rows → 244 documents | 144 tests, 96 runs, 4 project summaries; May 26–August 15, 2026 |
+| User design notes | 6 project profiles | Design intent, not approved implementation evidence |
+| Public documentation summaries | 4 documents | Tool guidance, not enterprise integration |
+| Generated synthetic exports | 72 documents, 90 links | 12 fictional artifacts for each of six projects |
+| Combined index | 326 documents / chunks, 4,360 recorded links | Kept separate by provenance and dataset labels |
 
-## Import future source exports
+Synthetic projects: BSP Services, Salesforce, WebOps, MyKC, CXE and SPROG. The seven source types include invented requirements, designs, database mappings, pull requests, step definitions, Gherkin features, test cases, executions, discussions, decisions, owners and triage records. All invented people, outcomes and schemas are labeled fictional. Source URLs point to the real public JSON exports in this repository, not fake Jira or Slack URLs. Synthetic IDs use the `SYN-` namespace; no synthetic links are attached to actual CSV test IDs.
 
-Add approved metadata-normalized exports under ignored `sources/private/`, following [the schema](docs/corpus-contract.md), then rebuild:
+## Retrieval and safety improvements
+
+1. Validate identifiers, source type, authority, dates, scope, duplicate records and relationship evidence. Reject public-to-private links that would disclose restricted targets.
+2. Chunk within document boundaries: 240 words with 35-word overlap. Fit 96-dimensional TF-IDF/LSA embeddings, preserving the projection for queries. This is classical corpus-trained dense embedding, **not a pretrained transformer**.
+3. Filter project, dataset, source availability, permissions and quarantined documents **before** FAISS ranking or graph traversal. The public demo grants no private scopes; project filters never authorize access.
+4. Use exact IDs and unique quoted titles. Unknown IDs abstain; ambiguous titles ask for clarification. No fuzzy first-match entity guessing.
+5. Traverse incoming/outgoing relationships up to 3 hops and 36 nodes. Rank target artifact types, relevance, authority and freshness. Attach original source text independently of relationship-type filters.
+6. Both graph and vector paths use the same chunks, including relationship assertions, and the same maximum 8 context records / 1,400 words. The vector baseline ranks only dense cosine similarity; graph uses hybrid seeding plus traversal/reranking. Shared scope and answerability checks apply to both.
+7. Return exact cited spans, disclose conflicts and partial sources, and refuse unsupported current-production conclusions. Evidence quality is a heuristic, not calibrated confidence.
+8. Optional model selection accepts only validated integer indices pointing to source spans. Invalid output or timeout falls back visibly to excerpts. No unconstrained model-authored factual prose is displayed.
+
+Limits: heuristic intent matching, English tokenization, small authored corpus, no live synchronization or real enterprise SSO, no independently measured semantic faithfulness, and possible irrelevant extra context. Prompt-injection pattern quarantine is defense-in-depth, not a complete detector. See [corpus contract](docs/corpus-contract.md) and [project report](docs/project-report.md).
+
+## Import authorized exports
+
+Use the normalized JSON schema in [data/synthetic/bsp.json](data/synthetic/bsp.json) as a structural example, but **do not label real data synthetic**. Each relationship must have an existing target, source ID and exact source-supported quote. Set an appropriate access scope; restricted targets require scope inheritance. No automatic relationship inference is performed.
 
 ```sh
 python scripts/ingest.py --extra sources/private/approved-export.json --output work/private-index.json
 ```
 
-Review ACLs, inherited restrictions, provenance, and derived summaries before deploying to a private environment. **Never replace the public repository's index with private material or push private indexes.** The public source tree and its generated artifacts must contain only publication-approved data. This POC is not a production multi-tenant security boundary.
+The extra export and private output are ignored by Git. Set `QEI_CORPUS_PATH` in an ignored `.env` to use that index locally. The shipped anonymous UI still denies restricted records; authenticated enterprise deployment requires a trusted server-side identity adapter, not a client-side project grant selector. Do not publish private corpora, derived summaries or indexes to this public repository.
 
-For another approved monthly CSV, preserve the previous source file, supply a merged file using the same schema, and rebuild. Exact duplicate execution IDs are ignored; conflicting duplicates fail. Ingestion is explicit and snapshot-based, not scheduled. The Week 1 dashboard's interactive CSV importer is a different project.
+## Optional model
 
-## Evaluation and known limits
+Copy `.env.example` to ignored `.env` and configure `QEI_MODEL_BASE_URL`, `QEI_MODEL_NAME`, and optionally `QEI_MODEL_API_KEY`. Use only an approved OpenAI-compatible endpoint supporting structured JSON-schema responses. Restart the app and opt in using its model checkbox. No paid endpoint is automatically chosen; no model call is made in default mode. Environment loading occurs before the UI checks configuration. External tracing should remain disabled for sensitive evidence.
 
-- 25 authored development questions: 100% expected-status accuracy, specified-source recall, correct refusal, and exact quotation support in the recorded run. The set was used while developing and is not a held-out benchmark.
-- 10 identical relationship queries: mean linked-test recall@6 was 57.1% for graph-assisted retrieval and 49.2% for the vector baseline. The seed consumes one result slot, and many runs have more tests than the limit.
-- Latest local model experiment: 17 validated LLM selections, no extractive fallbacks, and 8 pre-generation refusals. P95 including the local model was about 5.04 seconds, excluding the browser and hosting network. An earlier run had 6 timeouts/validation fallbacks; performance varies.
-- Semantic faithfulness and production P95 are not measured. Exact support alone does not establish contextual relevance, completeness, or correctness of the source.
-- 14 JavaScript tests and 5 Python tests cover retrieval, answer relevance, citation validation, input validation, project scope, permissions, stale data, conflicts, source outage, injection quarantine and ingestion.
-- No live connectors, scheduler, enterprise identity provisioning, source-owner adjudication workflow, or automatic production access revocation is implemented.
-- Prompt-injection quarantine is a limited pattern detector, not a complete defense. Quote-only generation and server-side scope filters reduce risk but do not replace a security review.
+The previous local Qwen experiment belongs to the legacy version. The Python adapter is covered with deterministic fake-provider tests; a live model-inclusive evaluation must be run separately with `python compare.py --model --output docs/python-model-evaluation.json` after endpoint approval/configuration. Do not mistake mock tests for a live provider benchmark.
 
-Reports: [baseline evaluation](docs/evaluation-report.md), [model evaluation](docs/evaluation-llm-report.md), [project documentation](docs/project-report.md), [demo guide](docs/demo-guide.md).
+## Validate and evaluate
 
-Private application: [QEI Week 2 workspace](https://qei-knowledge-intelligence-week2.lkalyanams.chatgpt.site). Owner sign-in is required. This separate Week 2 site does not change the Week 1 site's name or access.
+```sh
+python -m unittest discover -s tests -p "test_*.py" -v
+python compare.py
+python -m pip check
+```
 
-Demo aid: [4-minute AI-narrated screenshot walkthrough](demo/QEI_Week2_Walkthrough_Draft.mp4), captured from actual local app interactions. This edited screenshot video is not the final continuous live recording required by the handout. Its narration and scene metadata are in `demo/walkthrough-manifest.json`; [submission status](docs/submission-status.md) identifies the remaining Google Doc and live-recording steps.
+See [paired evaluation and failures](docs/python-evaluation-results.md). On the recorded 10-question development set, graph source recall@8 was 100%, vector 71.7%, and hybrid 66.7%; all 15 safety/status cases passed. Gold-set precision is much lower because up to eight records are returned and the gold sets contain only minimum required sources. Verbatim citation support is measured separately; **the ≥95% semantic faithfulness objective is not yet independently measured**. Timings and corpus hash are included in the generated report.
 
-## Project layout
+## Deliverables
 
-| Location | Responsibility |
-|---|---|
-| `scripts/ingest.py` | validation, cleaning, chunking, embedding, graph snapshot |
-| `lib/engine.mjs` | retrieval, freshness, conflicts, evidence composition, model adapter |
-| `lib/service.mjs` | request validation and trusted server identity mapping |
-| `app/api/` | HTTP endpoints for answers, corpus metadata and evaluation |
-| `app/Workspace.tsx` | interactive React workspace |
-| `config/projects.json` | explicit project types, aliases and strategies |
-| `sources/` | publication-approved source material and attribution |
-| `tests/` | executable safety and ingestion checks |
-| `docs/` | methodology, evaluation data and submission documentation |
+- [Project report: prompts, iterations and learnings](docs/project-report.md)
+- [Reference alignment and implemented changes](docs/reference-enhancements.md)
+- [Python deployment instructions](docs/deployment.md)
+- [Current submission status](docs/submission-status.md)
 
-The code-heavy track uses Python and JavaScript primitives rather than LangChain/LangGraph. The handout permits other frameworks. The optional graph extension meets the 20-node and 10-query comparison scope on execution relationships, but does not model real people or approval decisions that were never provided.
+The existing video in `demo/` demonstrates the earlier React version. It is a narrated screenshot draft, not a current Streamlit live-demo recording. A new ≤5-minute live recording remains to be made; the [demo guide](docs/demo-guide.md) describes the current flow.
