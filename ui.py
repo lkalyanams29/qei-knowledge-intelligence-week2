@@ -97,8 +97,9 @@ def main():
         example = st.selectbox("Example question", [q["question"] for q in COMPARISON_QUESTIONS], key="example")
         if st.button("Use example"):
             st.session_state["question"] = example
+        st.session_state.setdefault("question", COMPARISON_QUESTIONS[0]["question"])
         with st.form("ask_form"):
-            question = st.text_area("Your QE question", value=COMPARISON_QUESTIONS[0]["question"], key="question", max_chars=2000)
+            question = st.text_area("Your QE question", key="question", max_chars=2000)
             comparison = st.checkbox("Compare GraphRAG with vector retrieval", value=True)
             submitted = st.form_submit_button("Ask QE", type="primary")
         if submitted:
