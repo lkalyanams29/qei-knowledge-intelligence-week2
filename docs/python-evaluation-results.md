@@ -1,14 +1,14 @@
 # Python GraphRAG evaluation
 
-Corpus hash: `0af8586216fe8455d00a195f1fe56bb664c1cc6dc2ce19bc616d12f3d3442d91`
+Corpus hash: `bfc59688b2715b3e68f2e6888b7c732b6832cacf785990ee60ee92910874ab0e`
 
 Ten varied paired retrieval queries plus fifteen safety/status cases. No human semantic-faithfulness score is claimed.
 
 | Method | Mean gold recall@8 | Gold precision@8 | Verbatim citation support | Local P95 ms |
 |---|---:|---:|---:|---:|
-| graph | 100.0% | 20.0% | 100.0% | 172.41 |
-| vector | 71.7% | 13.8% | 100.0% | 30.36 |
-| hybrid | 66.7% | 12.5% | 100.0% | 33.79 |
+| graph | 100.0% | 20.0% | 100.0% | 159.65 |
+| vector | 66.7% | 12.5% | 100.0% | 32.29 |
+| hybrid | 71.7% | 13.8% | 100.0% | 31.17 |
 
 Safety status accuracy: 100.0%.
 
@@ -21,7 +21,7 @@ Safety status accuracy: 100.0%.
 | C03: Which database column validates SYN-SF-REQ-001? | 100% | 100% | None | None |
 | C04: Who approved SYN-WEB-PR-001? | 100% | 50% | None | SYN-WEB-PERSON-001 |
 | C05: What confirmation window governs SYN-BSP-REQ-001 and what discussion conflicts? | 100% | 67% | None | SYN-BSP-REQ-001 |
-| C06: What is the triage cause for SYN-MYKC-RUN-001? | 100% | 100% | None | None |
+| C06: What is the triage cause for SYN-MYKC-RUN-001? | 100% | 50% | None | SYN-MYKC-RUN-001 |
 | C07: Which step definition implements the scenario tested by SYN-CXE-TEST-001? | 100% | 50% | None | SYN-CXE-STEP-001 |
 | C08: Describe the entitlement activation design and its retry validation. | 100% | 100% | None | None |
 | C09: Which requirement and database mapping are linked to SYN-SPROG-TEST-001? | 100% | 50% | None | SYN-SPROG-REQ-001 |

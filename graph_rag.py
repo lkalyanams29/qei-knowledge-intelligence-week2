@@ -138,6 +138,7 @@ class GraphRAG:
                 "authority": chunk["authoritative_level"], "updated_at": chunk["updated_at"],
                 "freshness": freshness(chunk, options.now), "approval_status": chunk.get("approval_status", "observed"),
                 "source_rows": chunk.get("source_rows", []), "hop": depths.get(chunk["id"]),
+                "dataset": chunk.get("dataset"), "mcp_provenance": chunk.get("mcp_provenance"),
                 "dense_score": round(row["dense"], 4), "match_coverage": round(row["coverage"], 4)})
             if len(selected) >= options.top_k:
                 break
@@ -193,6 +194,8 @@ class GraphRAG:
                 query_terms = {t for t in self.vectors.tokens(state["question"]) if not re.search(r"-\d", t)}
                 def span_score(text):
                     score = len(query_terms & set(self.vectors.tokens(text)))
+                    if text.startswith("SYNTHETIC DOCUMENT:"):
+                        score -= 2  # A repeated title/banner is not the substantive answer.
                     if re.search(r"who|approv|owner", state["question"], re.I) and re.search(r"approved|owner|lead", text, re.I):
                         score += 3
                     return score
@@ -202,6 +205,10 @@ class GraphRAG:
                     if membership is not None:
                         best_index = membership
                 best = " ".join(candidates[best_index:best_index+2])
+                if re.search(r"acceptance criteria|\bacs?\b", state["question"], re.I):
+                    numbered_criteria = re.search(r"\bAC1:.*?(?=\s+##\s|$)", item["content"])
+                    if numbered_criteria:
+                        best = numbered_criteria.group(0)
                 # One exact evidence span, not an invented fluent assertion.
                 claims.append({"source_id": item["source_id"], "chunk_id": item["chunk_id"], "quote": best,
                                "url": item["url"], "synthetic": item["synthetic"]})

@@ -1,0 +1,18 @@
+{
+  "schema": "qei-planned-mcp-sources-v1",
+  "notice": "Planning configuration only; this file does not establish MCP connections or define vendor response schemas.",
+  "sources": [
+    {"source_type": "jira", "server_key": "atlassian_rovo", "planned_provider": "Atlassian Rovo MCP", "enabled": false, "mode": "synthetic_fixture", "endpoint": null, "tool_bindings": {}, "allowed_intents": ["search", "fetch"], "fixture": "data/mcp_samples/jira.json"},
+    {"source_type": "confluence", "server_key": "atlassian_rovo", "planned_provider": "Atlassian Rovo MCP", "enabled": false, "mode": "synthetic_fixture", "endpoint": null, "tool_bindings": {}, "allowed_intents": ["search", "fetch"], "fixture": "data/mcp_samples/confluence.json"},
+    {"source_type": "sharepoint", "server_key": "sharepoint_native", "planned_provider": "Tenant-approved Microsoft SharePoint MCP offering; verify capabilities and availability", "enabled": false, "mode": "synthetic_fixture", "endpoint": null, "tool_bindings": {}, "allowed_intents": ["search", "fetch"], "fixture": "data/mcp_samples/sharepoint.json"}
+  ],
+  "live_adapter_requirements": [
+    "Discover and validate actual tools and their input/output schemas before binding search/fetch intents.",
+    "Use tenant-approved identity and source authorization; deny access if effective permissions cannot be established.",
+    "Never copy the synthetic fixture's public scope onto real documents.",
+    "Fetch full authorized content before indexing; search snippets and truncated tool output are incomplete evidence.",
+    "Preserve native IDs, original URL, source revision, source update time, extraction completeness and retrieval time separately.",
+    "Keep credentials in approved secrets; do not publish tool traces or private source payloads.",
+    "No source mutation tools are needed to answer QE questions."
+  ]
+}

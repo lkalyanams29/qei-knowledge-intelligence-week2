@@ -10,6 +10,7 @@ The user approved public upload of the sample dataset. This permission does not 
 | `qei-architecture.txt` and `config/projects.json` | User design brief, L2 | Intended project types and testing strategies |
 | `public-notes.json` | Short attributed summaries of official public docs, L5 within product-documentation scope | Tool behavior and permission concepts |
 | `data/synthetic/*.json` | User-requested fictional demonstration corpus, explicitly labeled synthetic | Cross-source QE traceability, authority conflicts and failure scenarios |
+| `data/mcp_samples/*.json` | Additional fictional Jira/Confluence/SharePoint documentation with readable Markdown | Future native-MCP mapping fixtures, not captured tool output |
 
 The CSV is frozen, not a live TestOps feed. Its names and execution records are treated as sample evidence. Public documentation about Slack or Confluence is not evidence of access to a company's Slack or Confluence content. CXE and SPROG have design profiles but no execution rows; they are not silently equated with WebOps or MyKC.
 
@@ -44,6 +45,8 @@ This is a schema illustration, not a business record and not ingested. Source ty
 Relationships are `{ "target": "existing-source-id", "type": "IMPLEMENTS", "evidence_source_id": "this-source-id", "evidence_quote": "Exact supporting text from this source." }`. Declare links only when recorded by a source; similarity is not a relationship. The referenced quote must occur in source content. CSV-derived relationships use original row provenance instead. Missing targets, unsupported assertions and links between synthetic and non-synthetic records fail ingestion. For conflict detection, give records the same `entity_id` and a structured `facts` object with comparable fields. Conflicts without structured assertions may not be detected; operators must verify that facts match source text.
 
 Synthetic records also include `synthetic: true`, `dataset`, `approval_status`, `version` and `created_at`. They use `SYN-` IDs and real GitHub export URLs. Synthetic tests and runs do not imply execution coverage of the original CSV. CXE and SPROG now have fictional executions, but still have no supplied CSV rows.
+
+The documentation fixtures also retain a QEI-owned `mcp_provenance` object and synthetic native-key aliases. Its locator fields are examples to map after discovering an actual server's schema; they are not a declaration of that server's output format. `source_permissions_verified: false` and null tool/retrieval fields explicitly indicate no native read occurred. Public scope applies only because these records are fictional. Never reuse it for actual MCP results. See [native MCP data guide](native-mcp-data-guide.md).
 
 Use `public` only for explicitly approved public information. Restricted exports require `project:<exact project name>`. Missing/invalid scopes fail validation. The import process assumes an authorized operator has resolved source ACLs and inherited restrictions; it does not call vendor permission APIs. Derived summaries must be at least as restricted as all contributing records, and public text must not reveal restricted identifiers or content.
 

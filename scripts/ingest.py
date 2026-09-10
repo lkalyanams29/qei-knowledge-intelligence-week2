@@ -122,9 +122,9 @@ def build(extra=None,size=240,output=None):
         docs.append({"source_type":"architecture","source_id":"PROFILE-"+name.replace(" ","-"),"project":name,"document_type":"project_profile","title":name+" QE strategy","content":f"User-provided design notes: {name} project type is {p['type']}. Testing strategy: {p['strategy']}. Review dimensions: {', '.join(p['checks'])}. {p['basis']} This is a design brief, not an approved business requirement or an implementation artifact.","authoritative_level":2,"updated_at":None,"url":REPO+"sources/qei-architecture.txt","access_scope":"public","owner":"Project author"})
     if extra:
         docs+=json.loads(Path(extra).read_text(encoding="utf-8"))
-    synthetic_folder=ROOT/"data/synthetic"
-    for export in sorted(synthetic_folder.glob("*.json")):
-        docs+=json.loads(export.read_text(encoding="utf-8"))
+    for synthetic_folder in (ROOT/"data/synthetic", ROOT/"data/mcp_samples"):
+        for export in sorted(synthetic_folder.glob("*.json")):
+            docs+=json.loads(export.read_text(encoding="utf-8"))
     docs=[validate(d) for d in docs]
     if len({d["id"] for d in docs})!=len(docs): raise ValueError("Duplicate source IDs: namespace exported IDs before ingesting")
     validate_relationships(docs)

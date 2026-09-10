@@ -11,6 +11,7 @@ from graph_rag import GraphRAG
 from llm import model_configured
 from logging_config import configure_logging
 from questions import COMPARISON_QUESTIONS
+from data.mcp_questions import MCP_EXAMPLE_QUESTIONS
 from settings import ROOT, QueryOptions, index_path
 
 st.set_page_config(page_title="QEI Knowledge Intelligence", page_icon="🔎", layout="wide")
@@ -51,6 +52,9 @@ def result_panel(result, heading):
             st.write(item["source_id"]+" · "+item["title"])
             st.caption(f"{item['source_type']} · L{item['authority']} authority · {item['approval_status']} · {item['freshness']} · updated {item['updated_at'] or 'unknown'} · hop {item['hop'] if item['hop'] is not None else '—'}")
             st.text(item["content"])
+            if item.get("mcp_provenance"):
+                st.caption("Planned native MCP source — this is a synthetic fixture, not a live tool response.")
+                st.json(item["mcp_provenance"], expanded=False)
             st.markdown(f"[Open original source export]({item['url']})")
             if item["source_rows"]:
                 st.caption("CSV row provenance: "+", ".join(map(str, item["source_rows"])))
@@ -63,7 +67,6 @@ def main():
     configure_logging()
     st.title("QEI Knowledge Intelligence")
     st.caption("Requirements → implementation → automation → execution evidence")
-    st.info("Demo corpus: supplied TestOps sample + design notes + public documentation + 72 clearly labeled synthetic records. No live Jira, Confluence, SharePoint, Bitbucket, Slack, Katalon or TestOps connection.")
     path = index_path()
     if not path.exists():
         if path != ROOT/"data/index.json":
@@ -74,6 +77,8 @@ def main():
             build()
     engine = load_engine(path, path.stat().st_mtime_ns)
     corpus = engine.corpus
+    synthetic_count = sum(bool(d.get("synthetic")) for d in corpus["documents"])
+    st.info(f"Demo corpus: supplied TestOps sample + design notes + public documentation + {synthetic_count} clearly labeled synthetic records. Jira, Confluence and SharePoint MCP connections are planned, not connected. No live enterprise sources are queried.")
     with st.sidebar:
         st.header("Evidence scope")
         project = st.selectbox("Project", ["All", *sorted(corpus["profiles"])], key="project")
@@ -94,7 +99,7 @@ def main():
 
     with ask_tab:
         mode = st.radio("Answer mode", ["Ask QE", "Mentor Mode"], horizontal=True)
-        example = st.selectbox("Example question", [q["question"] for q in COMPARISON_QUESTIONS], key="example")
+        example = st.selectbox("Example question", [q["question"] for q in COMPARISON_QUESTIONS]+MCP_EXAMPLE_QUESTIONS, key="example")
         if st.button("Use example"):
             st.session_state["question"] = example
         st.session_state.setdefault("question", COMPARISON_QUESTIONS[0]["question"])
@@ -136,13 +141,15 @@ def main():
         columns[2].metric("Recorded relationships", graph.number_of_edges())
         columns[3].metric("Supplied CSV results", corpus["stats"]["rows"])
         st.caption("CSV result count always refers to the original supplied file; synthetic runs are never added to it.")
+        mcp_records = [d for d in documents.values() if d.get("mcp_provenance")]
+        st.caption(f"{len(mcp_records)} documentation fixtures model a future native-MCP ingestion path. Endpoint and tool bindings are intentionally unconfigured.")
         counts = Counter((d["source_type"], "Synthetic" if d.get("synthetic") else "Supplied/public notes") for d in documents.values())
         st.dataframe([{"Source": source, "Dataset": dataset, "Records": count, "Connection": "File snapshot, not live"}
                       for (source, dataset), count in sorted(counts.items())], hide_index=True, width="stretch")
         search = st.text_input("Find source records")
         records = [d for d in documents.values() if search.lower() in (d["id"]+" "+d["title"]).lower()]
         st.dataframe([{"ID": d["id"], "Title": d["title"], "Project": d["project"], "Source": d["source_type"],
-                       "Synthetic": d.get("synthetic", False), "Authority": d["authoritative_level"], "Updated": d["updated_at"]}
+                       "Synthetic": d.get("synthetic", False), "Dataset": d.get("dataset"), "Authority": d["authoritative_level"], "Updated": d["updated_at"]}
                       for d in records], hide_index=True, width="stretch")
 
     with graph_tab:

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T11:47:30.370383+00:00",
-  "corpus_hash": "0af8586216fe8455d00a195f1fe56bb664c1cc6dc2ce19bc616d12f3d3442d91",
+  "generated_at": "2026-09-10T14:34:22.848322+00:00",
+  "corpus_hash": "bfc59688b2715b3e68f2e6888b7c732b6832cacf785990ee60ee92910874ab0e",
   "as_of": "2026-09-10T12:00:00+00:00",
   "comparison_queries": 10,
   "safety_queries": 15,
@@ -9,19 +9,19 @@
       "mean_recall_at_8": 1.0,
       "mean_gold_precision_at_8": 0.2,
       "verbatim_citation_support": 1.0,
-      "p95_local_ms": 172.4144999999998
+      "p95_local_ms": 159.65249999999983
     },
     "vector": {
-      "mean_recall_at_8": 0.7166666666666666,
-      "mean_gold_precision_at_8": 0.1375,
-      "verbatim_citation_support": 1.0,
-      "p95_local_ms": 30.358999999999998
-    },
-    "hybrid": {
       "mean_recall_at_8": 0.6666666666666666,
       "mean_gold_precision_at_8": 0.125,
       "verbatim_citation_support": 1.0,
-      "p95_local_ms": 33.794999999999995
+      "p95_local_ms": 32.291999999999994
+    },
+    "hybrid": {
+      "mean_recall_at_8": 0.7166666666666666,
+      "mean_gold_precision_at_8": 0.1375,
+      "verbatim_citation_support": 1.0,
+      "p95_local_ms": 31.168499999999998
     }
   },
   "safety_status_accuracy": 1.0,
@@ -51,19 +51,19 @@
         "missing_gold": [],
         "retrieved_ids": [
           "SYN-BSP-DECISION-001",
+          "SYN-BSP-DESIGN-301",
           "SYN-BSP-FEATURE-001",
           "SYN-BSP-MAP-001",
-          "SYN-BSP-PERSON-001",
           "SYN-BSP-PR-001",
           "SYN-BSP-REQ-001",
           "SYN-BSP-SPEC-001",
-          "SYN-BSP-STEP-001"
+          "SYN-BSP-STORY-201"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 76.06,
+        "latency_ms": 22.83,
         "generation": "extractive"
       },
       "vector": {
@@ -84,7 +84,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 25.57,
+        "latency_ms": 10.67,
         "generation": "extractive"
       },
       "hybrid": {
@@ -105,7 +105,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 25.48,
+        "latency_ms": 14.62,
         "generation": "extractive"
       }
     },
@@ -121,7 +121,7 @@
         "gold_precision_at_8": 0.125,
         "missing_gold": [],
         "retrieved_ids": [
-          "DOC-RESULTS",
+          "SYN-BSP-PLAN-401",
           "SYN-BSP-RUN-001",
           "SYN-BSP-SPEC-001",
           "SYN-CXE-RUN-001",
@@ -134,7 +134,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 25.51,
+        "latency_ms": 14.83,
         "generation": "extractive"
       },
       "hybrid": {
@@ -155,7 +155,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 27.47,
+        "latency_ms": 10.84,
         "generation": "extractive"
       },
       "graph": {
@@ -163,20 +163,20 @@
         "gold_precision_at_8": 0.125,
         "missing_gold": [],
         "retrieved_ids": [
-          "SYN-BSP-CHAT-001",
           "SYN-BSP-DECISION-001",
           "SYN-BSP-FEATURE-001",
-          "SYN-BSP-PERSON-001",
-          "SYN-BSP-PR-001",
+          "SYN-BSP-PLAN-401",
+          "SYN-BSP-RELEASE-402",
           "SYN-BSP-REQ-001",
           "SYN-BSP-RUN-001",
-          "SYN-BSP-SPEC-001"
+          "SYN-BSP-SPEC-001",
+          "SYN-BSP-STORY-201"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 69.88,
+        "latency_ms": 26.53,
         "generation": "extractive"
       }
     },
@@ -192,20 +192,20 @@
         "gold_precision_at_8": 0.125,
         "missing_gold": [],
         "retrieved_ids": [
-          "SYN-BSP-MAP-001",
+          "SYN-BSP-TEST-001",
           "SYN-CXE-MAP-001",
           "SYN-CXE-TEST-001",
-          "SYN-MYKC-MAP-001",
+          "SYN-MYKC-TEST-001",
           "SYN-SF-MAP-001",
           "SYN-SF-TEST-001",
-          "SYN-SPROG-MAP-001",
-          "SYN-WEB-MAP-001"
+          "SYN-SPROG-TEST-001",
+          "SYN-WEB-TEST-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 27.79,
+        "latency_ms": 11.75,
         "generation": "extractive"
       },
       "graph": {
@@ -217,16 +217,16 @@
           "SYN-SF-FEATURE-001",
           "SYN-SF-MAP-001",
           "SYN-SF-PERSON-001",
-          "SYN-SF-PR-001",
+          "SYN-SF-PLAN-401",
           "SYN-SF-REQ-001",
           "SYN-SF-SPEC-001",
-          "SYN-SF-STEP-001"
+          "SYN-SF-STORY-201"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 74.15,
+        "latency_ms": 24.83,
         "generation": "extractive"
       },
       "vector": {
@@ -234,20 +234,20 @@
         "gold_precision_at_8": 0.125,
         "missing_gold": [],
         "retrieved_ids": [
-          "SYN-BSP-MAP-001",
           "SYN-CXE-MAP-001",
-          "SYN-MYKC-MAP-001",
+          "SYN-CXE-TEST-001",
+          "SYN-MYKC-TEST-001",
           "SYN-SF-MAP-001",
-          "SYN-SF-STEP-001",
           "SYN-SF-TEST-001",
           "SYN-SPROG-MAP-001",
+          "SYN-SPROG-TEST-001",
           "SYN-WEB-MAP-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 30.53,
+        "latency_ms": 13.96,
         "generation": "extractive"
       }
     },
@@ -266,9 +266,9 @@
         "retrieved_ids": [
           "SYN-WEB-CHAT-001",
           "SYN-WEB-DECISION-001",
-          "SYN-WEB-FEATURE-001",
-          "SYN-WEB-MAP-001",
+          "SYN-WEB-DESIGN-301",
           "SYN-WEB-PERSON-001",
+          "SYN-WEB-PLAN-401",
           "SYN-WEB-PR-001",
           "SYN-WEB-REQ-001",
           "SYN-WEB-SPEC-001"
@@ -277,7 +277,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 67.23,
+        "latency_ms": 26.76,
         "generation": "extractive"
       },
       "vector": {
@@ -287,9 +287,9 @@
           "SYN-WEB-PERSON-001"
         ],
         "retrieved_ids": [
+          "SYN-BSP-DECISION-001",
           "SYN-BSP-PR-001",
           "SYN-CXE-PR-001",
-          "SYN-MYKC-DECISION-001",
           "SYN-MYKC-PR-001",
           "SYN-SF-PR-001",
           "SYN-SPROG-PR-001",
@@ -300,7 +300,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 26.19,
+        "latency_ms": 9.97,
         "generation": "extractive"
       },
       "hybrid": {
@@ -312,7 +312,7 @@
         "retrieved_ids": [
           "DOC-CONFLUENCE-ACL",
           "SYN-BSP-PR-001",
-          "SYN-CXE-DECISION-001",
+          "SYN-CXE-PR-001",
           "SYN-MYKC-DECISION-001",
           "SYN-MYKC-PR-001",
           "SYN-SF-DECISION-001",
@@ -323,7 +323,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 25.49,
+        "latency_ms": 9.33,
         "generation": "extractive"
       }
     },
@@ -348,15 +348,15 @@
           "SYN-CXE-CHAT-001",
           "SYN-MYKC-CHAT-001",
           "SYN-SF-CHAT-001",
-          "SYN-SF-DECISION-001",
           "SYN-SPROG-CHAT-001",
-          "SYN-WEB-CHAT-001"
+          "SYN-WEB-CHAT-001",
+          "SYN-WEB-DECISION-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 29.67,
+        "latency_ms": 11.0,
         "generation": "extractive"
       },
       "hybrid": {
@@ -368,9 +368,9 @@
         "retrieved_ids": [
           "SYN-BSP-CHAT-001",
           "SYN-BSP-DECISION-001",
-          "SYN-BSP-SPEC-001",
           "SYN-CXE-CHAT-001",
           "SYN-MYKC-CHAT-001",
+          "SYN-MYKC-DECISION-001",
           "SYN-SF-CHAT-001",
           "SYN-SPROG-CHAT-001",
           "SYN-WEB-CHAT-001"
@@ -379,7 +379,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 34.29,
+        "latency_ms": 10.98,
         "generation": "extractive"
       },
       "graph": {
@@ -389,18 +389,18 @@
         "retrieved_ids": [
           "SYN-BSP-CHAT-001",
           "SYN-BSP-DECISION-001",
+          "SYN-BSP-DESIGN-301",
           "SYN-BSP-FEATURE-001",
-          "SYN-BSP-PERSON-001",
           "SYN-BSP-PR-001",
           "SYN-BSP-REQ-001",
           "SYN-BSP-SPEC-001",
-          "SYN-BSP-STEP-001"
+          "SYN-BSP-STORY-201"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 70.14,
+        "latency_ms": 33.47,
         "generation": "extractive"
       }
     },
@@ -419,9 +419,9 @@
         "retrieved_ids": [
           "SYN-BSP-DEFECT-001",
           "SYN-CXE-DEFECT-001",
-          "SYN-CXE-PERSON-001",
           "SYN-MYKC-DEFECT-001",
           "SYN-MYKC-RUN-001",
+          "SYN-MYKC-RUNBOOK-302",
           "SYN-SF-DEFECT-001",
           "SYN-SPROG-DEFECT-001",
           "SYN-WEB-DEFECT-001"
@@ -430,7 +430,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 27.86,
+        "latency_ms": 26.89,
         "generation": "extractive"
       },
       "graph": {
@@ -451,28 +451,30 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 66.97,
+        "latency_ms": 65.73,
         "generation": "extractive"
       },
       "vector": {
-        "recall_at_8": 1.0,
-        "gold_precision_at_8": 0.25,
-        "missing_gold": [],
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
+        "missing_gold": [
+          "SYN-MYKC-RUN-001"
+        ],
         "retrieved_ids": [
           "SYN-BSP-DEFECT-001",
           "SYN-CXE-DEFECT-001",
           "SYN-MYKC-DEFECT-001",
-          "SYN-MYKC-PERSON-001",
-          "SYN-MYKC-RUN-001",
+          "SYN-MYKC-RUNBOOK-302",
           "SYN-SF-DEFECT-001",
           "SYN-SPROG-DEFECT-001",
+          "SYN-SPROG-RUNBOOK-302",
           "SYN-WEB-DEFECT-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 26.81,
+        "latency_ms": 29.46,
         "generation": "extractive"
       }
     },
@@ -492,17 +494,17 @@
           "SYN-CXE-DECISION-001",
           "SYN-CXE-FEATURE-001",
           "SYN-CXE-PR-001",
-          "SYN-CXE-REQ-001",
           "SYN-CXE-RUN-001",
           "SYN-CXE-SPEC-001",
           "SYN-CXE-STEP-001",
+          "SYN-CXE-STORY-201",
           "SYN-CXE-TEST-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 69.04,
+        "latency_ms": 68.34,
         "generation": "extractive"
       },
       "vector": {
@@ -514,7 +516,7 @@
         "retrieved_ids": [
           "SYN-BSP-PR-001",
           "SYN-CXE-FEATURE-001",
-          "SYN-CXE-RUN-001",
+          "SYN-CXE-PR-001",
           "SYN-CXE-TEST-001",
           "SYN-MYKC-PR-001",
           "SYN-SF-PR-001",
@@ -525,20 +527,19 @@
         "valid_citations": 0,
         "verbatim_citation_support": null,
         "status": "INSUFFICIENT_EVIDENCE",
-        "latency_ms": 27.86,
+        "latency_ms": 32.76,
         "generation": "extractive"
       },
       "hybrid": {
-        "recall_at_8": 0.0,
-        "gold_precision_at_8": 0.0,
+        "recall_at_8": 0.5,
+        "gold_precision_at_8": 0.125,
         "missing_gold": [
-          "SYN-CXE-FEATURE-001",
           "SYN-CXE-STEP-001"
         ],
         "retrieved_ids": [
           "SYN-BSP-PR-001",
+          "SYN-CXE-FEATURE-001",
           "SYN-CXE-PR-001",
-          "SYN-CXE-RUN-001",
           "SYN-CXE-TEST-001",
           "SYN-MYKC-PR-001",
           "SYN-SF-PR-001",
@@ -549,7 +550,7 @@
         "valid_citations": 0,
         "verbatim_citation_support": null,
         "status": "INSUFFICIENT_EVIDENCE",
-        "latency_ms": 28.98,
+        "latency_ms": 30.65,
         "generation": "extractive"
       }
     },
@@ -569,16 +570,16 @@
           "SYN-CXE-SPEC-001",
           "SYN-MYKC-SPEC-001",
           "SYN-SF-SPEC-001",
-          "SYN-SPROG-MAP-001",
+          "SYN-SPROG-PLAN-401",
+          "SYN-SPROG-PR-001",
           "SYN-SPROG-SPEC-001",
-          "SYN-SPROG-TEST-001",
           "SYN-WEB-SPEC-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 29.99,
+        "latency_ms": 31.72,
         "generation": "extractive"
       },
       "hybrid": {
@@ -590,16 +591,16 @@
           "SYN-CXE-SPEC-001",
           "SYN-MYKC-SPEC-001",
           "SYN-SF-SPEC-001",
+          "SYN-SPROG-DESIGN-301",
           "SYN-SPROG-MAP-001",
-          "SYN-SPROG-PR-001",
-          "SYN-SPROG-SPEC-001",
-          "SYN-WEB-SPEC-001"
+          "SYN-SPROG-PLAN-401",
+          "SYN-SPROG-SPEC-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 33.19,
+        "latency_ms": 31.38,
         "generation": "extractive"
       },
       "graph": {
@@ -607,12 +608,12 @@
         "gold_precision_at_8": 0.125,
         "missing_gold": [],
         "retrieved_ids": [
-          "SYN-CXE-PERSON-001",
-          "SYN-CXE-SPEC-001",
+          "SYN-SPROG-BUG-202",
           "SYN-SPROG-DECISION-001",
-          "SYN-SPROG-FEATURE-001",
+          "SYN-SPROG-DESIGN-301",
           "SYN-SPROG-MAP-001",
-          "SYN-SPROG-PR-001",
+          "SYN-SPROG-PLAN-401",
+          "SYN-SPROG-RELEASE-402",
           "SYN-SPROG-REQ-001",
           "SYN-SPROG-SPEC-001"
         ],
@@ -620,7 +621,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 72.7,
+        "latency_ms": 231.99,
         "generation": "extractive"
       }
     },
@@ -652,7 +653,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 26.36,
+        "latency_ms": 30.91,
         "generation": "extractive"
       },
       "graph": {
@@ -665,15 +666,15 @@
           "SYN-SPROG-MAP-001",
           "SYN-SPROG-REQ-001",
           "SYN-SPROG-RUN-001",
-          "SYN-SPROG-SPEC-001",
           "SYN-SPROG-STEP-001",
+          "SYN-SPROG-STORY-201",
           "SYN-SPROG-TEST-001"
         ],
         "claims": 8,
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "CONFLICTING_EVIDENCE",
-        "latency_ms": 251.25,
+        "latency_ms": 63.18,
         "generation": "extractive"
       },
       "vector": {
@@ -696,7 +697,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 30.15,
+        "latency_ms": 30.57,
         "generation": "extractive"
       }
     },
@@ -725,7 +726,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 67.96,
+        "latency_ms": 71.24,
         "generation": "extractive"
       },
       "vector": {
@@ -748,7 +749,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 26.43,
+        "latency_ms": 26.76,
         "generation": "extractive"
       },
       "hybrid": {
@@ -758,11 +759,11 @@
           "KT-202-TC-001"
         ],
         "retrieved_ids": [
+          "DOC-FLAKINESS",
           "KT-101-TC-012",
           "KT-202-TC-012",
           "KT-303-TC-012",
           "KT-404-TC-012",
-          "RUN-00025",
           "RUN-00026",
           "RUN-00028",
           "RUN-00030"
@@ -771,7 +772,7 @@
         "valid_citations": 8,
         "verbatim_citation_support": 1.0,
         "status": "EVIDENCE_FOUND",
-        "latency_ms": 23.73,
+        "latency_ms": 26.42,
         "generation": "extractive"
       }
     }
@@ -784,7 +785,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 7.2
+      "latency_ms": 8.34
     },
     {
       "id": "S02",
@@ -793,7 +794,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 65.91
+      "latency_ms": 66.81
     },
     {
       "id": "S03",
@@ -802,7 +803,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 65.58
+      "latency_ms": 67.72
     },
     {
       "id": "S04",
@@ -812,7 +813,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 5.91
+      "latency_ms": 7.12
     },
     {
       "id": "S05",
@@ -821,7 +822,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 21.42
+      "latency_ms": 23.81
     },
     {
       "id": "S06",
@@ -830,7 +831,7 @@
       "actual": "CONFLICTING_EVIDENCE",
       "passed": true,
       "claims": 8,
-      "latency_ms": 64.79
+      "latency_ms": 62.13
     },
     {
       "id": "S07",
@@ -839,7 +840,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 63.19
+      "latency_ms": 67.88
     },
     {
       "id": "S08",
@@ -851,7 +852,7 @@
       "actual": "SOURCE_UNAVAILABLE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 6.29
+      "latency_ms": 7.93
     },
     {
       "id": "S09",
@@ -860,7 +861,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 8.95
+      "latency_ms": 7.7
     },
     {
       "id": "S10",
@@ -870,7 +871,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 6.44
+      "latency_ms": 6.85
     },
     {
       "id": "S11",
@@ -879,7 +880,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 59.01
+      "latency_ms": 68.72
     },
     {
       "id": "S12",
@@ -888,7 +889,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 5.74
+      "latency_ms": 8.43
     },
     {
       "id": "S13",
@@ -897,7 +898,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 69.65
+      "latency_ms": 66.34
     },
     {
       "id": "S14",
@@ -907,7 +908,7 @@
       "actual": "INSUFFICIENT_EVIDENCE",
       "passed": true,
       "claims": 0,
-      "latency_ms": 6.6
+      "latency_ms": 7.0
     },
     {
       "id": "S15",
@@ -916,7 +917,7 @@
       "actual": "CONFLICTING_EVIDENCE",
       "passed": true,
       "claims": 8,
-      "latency_ms": 60.04
+      "latency_ms": 247.68
     }
   ]
 }

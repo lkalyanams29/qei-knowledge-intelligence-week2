@@ -1,0 +1,638 @@
+[
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-BSP-DESIGN-301",
+    "project": "BSP Services",
+    "document_type": "specification",
+    "title": "Payment Idempotency design and decisions",
+    "content": "SYNTHETIC DOCUMENT: BSP Services; Payment Idempotency design and decisions.\n\n## Purpose\n\nPrevent duplicate payment ledger entries when an authorized client retries a request.\n\n## Approved demo design\n\nThe gateway validates payment scope before reserving a composite tenant-and-idempotency key. The ledger transaction and reservation commit together. A reservation stores a payload digest, not a card number. The confirmation window is 30 seconds, matching the earlier demo requirement.\n\n## Verification boundary\n\nBoth responses reference one payment identifier and the ledger contains one row.\n\n## Failure and trust boundaries\n\nValidate authorization before state changes. Treat downstream timeouts as unknown outcomes until reconciled with source evidence. A tool's search excerpt is not a complete design document.\n\n## Decision record\n\nReviewed by fictional QE owner Mira Chen. The Jira story defines acceptance; this page explains the design. A contradiction must be reported rather than silently merged.\n\nSYN-BSP-DESIGN-301 EXPLAINS SYN-BSP-STORY-201.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-BSP-DESIGN-301.md",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-BSP-STORY-201",
+        "type": "EXPLAINS",
+        "evidence_source_id": "SYN-BSP-DESIGN-301",
+        "evidence_quote": "SYN-BSP-DESIGN-301 EXPLAINS SYN-BSP-STORY-201."
+      }
+    ],
+    "aliases": [
+      "Payment Idempotency design and decisions",
+      "BSP Services Payment Idempotency design and decisions"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QEBSP",
+        "page_id": "syn-bsp-design-301",
+        "parent_page_id": "syn-bsp-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-BSP-RUNBOOK-302",
+    "project": "BSP Services",
+    "document_type": "runbook",
+    "title": "Payment Idempotency triage and recovery runbook",
+    "content": "SYNTHETIC DOCUMENT: BSP Services; Payment Idempotency triage and recovery runbook.\n\n## When to use\n\nFor the fictional payment idempotency incident. Two concurrent retries returned different payment identifiers when a stale replica was used for the reservation lookup.\n\n## Read-only diagnosis\n\nCapture the masked correlation identifier and environment. Compare the source requirement, observed result and affected revision. Classify product, automation or environment cause without guessing.\n\n## Demo mitigation\n\nRoute reservation reads to the writer in demo-staging; do not replay captured payment payloads.\n\n## Demo rollback\n\nDisable the retry optimization with the demo feature flag and verify a single ledger row using a masked request identifier.\n\n## Escalation and safety\n\nEscalation owner: Mira Chen, fictional QE lead. These are documentation examples, not permission for an agent to operate production. Request human approval before any state-changing recovery action.\n\nSYN-BSP-RUNBOOK-302 DIAGNOSES SYN-BSP-BUG-202.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-BSP-RUNBOOK-302.md",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-BSP-BUG-202",
+        "type": "DIAGNOSES",
+        "evidence_source_id": "SYN-BSP-RUNBOOK-302",
+        "evidence_quote": "SYN-BSP-RUNBOOK-302 DIAGNOSES SYN-BSP-BUG-202."
+      }
+    ],
+    "aliases": [
+      "Payment Idempotency triage and recovery runbook",
+      "BSP Services Payment Idempotency triage and recovery runbook"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QEBSP",
+        "page_id": "syn-bsp-runbook-302",
+        "parent_page_id": "syn-bsp-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-SF-DESIGN-301",
+    "project": "Salesforce",
+    "document_type": "specification",
+    "title": "Opportunity Approval design and decisions",
+    "content": "SYNTHETIC DOCUMENT: Salesforce; Opportunity Approval design and decisions.\n\n## Purpose\n\nPrevent an opportunity from closing before an authorized manager approves the matching revision.\n\n## Approved demo design\n\nApproval state is keyed by opportunity revision. A manager's approval stores the approved revision and actor role. The close transition compares that revision with the active record before changing stage. Duplicate callbacks use a stable event identifier.\n\n## Verification boundary\n\nThe close transition is blocked and a revision-4 manager approval is requested.\n\n## Failure and trust boundaries\n\nValidate authorization before state changes. Treat downstream timeouts as unknown outcomes until reconciled with source evidence. A tool's search excerpt is not a complete design document.\n\n## Decision record\n\nReviewed by fictional QE owner Owen Shah. The Jira story defines acceptance; this page explains the design. A contradiction must be reported rather than silently merged.\n\nSYN-SF-DESIGN-301 EXPLAINS SYN-SF-STORY-201.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-SF-DESIGN-301.md",
+    "access_scope": "public",
+    "owner": "Owen Shah (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-SF-STORY-201",
+        "type": "EXPLAINS",
+        "evidence_source_id": "SYN-SF-DESIGN-301",
+        "evidence_quote": "SYN-SF-DESIGN-301 EXPLAINS SYN-SF-STORY-201."
+      }
+    ],
+    "aliases": [
+      "Opportunity Approval design and decisions",
+      "Salesforce Opportunity Approval design and decisions"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QESF",
+        "page_id": "syn-sf-design-301",
+        "parent_page_id": "syn-sf-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-SF-RUNBOOK-302",
+    "project": "Salesforce",
+    "document_type": "runbook",
+    "title": "Opportunity Approval triage and recovery runbook",
+    "content": "SYNTHETIC DOCUMENT: Salesforce; Opportunity Approval triage and recovery runbook.\n\n## When to use\n\nFor the fictional opportunity approval incident. An approval for revision 3 was accepted after the amount was edited to revision 4.\n\n## Read-only diagnosis\n\nCapture the masked correlation identifier and environment. Compare the source requirement, observed result and affected revision. Classify product, automation or environment cause without guessing.\n\n## Demo mitigation\n\nKeep affected fictional opportunities in pending-approval state and request a new approval after edits.\n\n## Demo rollback\n\nRestore the previous approval validation rule in the demo sandbox and retain audit evidence for every attempted transition.\n\n## Escalation and safety\n\nEscalation owner: Owen Shah, fictional QE lead. These are documentation examples, not permission for an agent to operate production. Request human approval before any state-changing recovery action.\n\nSYN-SF-RUNBOOK-302 DIAGNOSES SYN-SF-BUG-202.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-SF-RUNBOOK-302.md",
+    "access_scope": "public",
+    "owner": "Owen Shah (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-SF-BUG-202",
+        "type": "DIAGNOSES",
+        "evidence_source_id": "SYN-SF-RUNBOOK-302",
+        "evidence_quote": "SYN-SF-RUNBOOK-302 DIAGNOSES SYN-SF-BUG-202."
+      }
+    ],
+    "aliases": [
+      "Opportunity Approval triage and recovery runbook",
+      "Salesforce Opportunity Approval triage and recovery runbook"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QESF",
+        "page_id": "syn-sf-runbook-302",
+        "parent_page_id": "syn-sf-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-WEB-DESIGN-301",
+    "project": "WebOps",
+    "document_type": "specification",
+    "title": "Checkout Recovery design and decisions",
+    "content": "SYNTHETIC DOCUMENT: WebOps; Checkout Recovery design and decisions.\n\n## Purpose\n\nRecover a customer's cart after session expiry without exposing another customer's cart or preserving invalid prices.\n\n## Approved demo design\n\nThe recovery service binds the token to account and cart identifiers. Reauthentication precedes cart lookup. A recovered cart is revalidated against pricing and inventory services, and token consumption is recorded atomically with order creation.\n\n## Verification boundary\n\nThe screen shows the refreshed price and explains the discount removal before order confirmation.\n\n## Failure and trust boundaries\n\nValidate authorization before state changes. Treat downstream timeouts as unknown outcomes until reconciled with source evidence. A tool's search excerpt is not a complete design document.\n\n## Decision record\n\nReviewed by fictional QE owner Nora Kim. The Jira story defines acceptance; this page explains the design. A contradiction must be reported rather than silently merged.\n\nSYN-WEB-DESIGN-301 EXPLAINS SYN-WEB-STORY-201.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-WEB-DESIGN-301.md",
+    "access_scope": "public",
+    "owner": "Nora Kim (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-WEB-STORY-201",
+        "type": "EXPLAINS",
+        "evidence_source_id": "SYN-WEB-DESIGN-301",
+        "evidence_quote": "SYN-WEB-DESIGN-301 EXPLAINS SYN-WEB-STORY-201."
+      }
+    ],
+    "aliases": [
+      "Checkout Recovery design and decisions",
+      "WebOps Checkout Recovery design and decisions"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QEWEB",
+        "page_id": "syn-web-design-301",
+        "parent_page_id": "syn-web-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-WEB-RUNBOOK-302",
+    "project": "WebOps",
+    "document_type": "runbook",
+    "title": "Checkout Recovery triage and recovery runbook",
+    "content": "SYNTHETIC DOCUMENT: WebOps; Checkout Recovery triage and recovery runbook.\n\n## When to use\n\nFor the fictional checkout recovery incident. The recovery screen displayed a cached discount even after the pricing service returned its removal.\n\n## Read-only diagnosis\n\nCapture the masked correlation identifier and environment. Compare the source requirement, observed result and affected revision. Classify product, automation or environment cause without guessing.\n\n## Demo mitigation\n\nRequire a full cart refresh before confirmation and show a changed-price notice.\n\n## Demo rollback\n\nTurn off cart auto-recovery in the demo configuration and direct the synthetic shopper to rebuild the cart.\n\n## Escalation and safety\n\nEscalation owner: Nora Kim, fictional QE lead. These are documentation examples, not permission for an agent to operate production. Request human approval before any state-changing recovery action.\n\nSYN-WEB-RUNBOOK-302 DIAGNOSES SYN-WEB-BUG-202.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-WEB-RUNBOOK-302.md",
+    "access_scope": "public",
+    "owner": "Nora Kim (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-WEB-BUG-202",
+        "type": "DIAGNOSES",
+        "evidence_source_id": "SYN-WEB-RUNBOOK-302",
+        "evidence_quote": "SYN-WEB-RUNBOOK-302 DIAGNOSES SYN-WEB-BUG-202."
+      }
+    ],
+    "aliases": [
+      "Checkout Recovery triage and recovery runbook",
+      "WebOps Checkout Recovery triage and recovery runbook"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QEWEB",
+        "page_id": "syn-web-runbook-302",
+        "parent_page_id": "syn-web-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-MYKC-DESIGN-301",
+    "project": "MyKC",
+    "document_type": "specification",
+    "title": "Sponsor Enrollment design and decisions",
+    "content": "SYNTHETIC DOCUMENT: MyKC; Sponsor Enrollment design and decisions.\n\n## Purpose\n\nSubmit one enrollment for a sponsor even when the browser retries after a timeout.\n\n## Approved demo design\n\nThe browser retains a generated enrollment key for a single submission journey. The service checks required fields and business identifiers before committing an enrollment. Retry responses reuse the existing confirmation reference; duplicate identities require an explicit review path.\n\n## Verification boundary\n\nThe test selects the stable confirmation control and verifies the returned enrollment reference.\n\n## Failure and trust boundaries\n\nValidate authorization before state changes. Treat downstream timeouts as unknown outcomes until reconciled with source evidence. A tool's search excerpt is not a complete design document.\n\n## Decision record\n\nReviewed by fictional QE owner Eli Park. The Jira story defines acceptance; this page explains the design. A contradiction must be reported rather than silently merged.\n\nSYN-MYKC-DESIGN-301 EXPLAINS SYN-MYKC-STORY-201.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-MYKC-DESIGN-301.md",
+    "access_scope": "public",
+    "owner": "Eli Park (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-MYKC-STORY-201",
+        "type": "EXPLAINS",
+        "evidence_source_id": "SYN-MYKC-DESIGN-301",
+        "evidence_quote": "SYN-MYKC-DESIGN-301 EXPLAINS SYN-MYKC-STORY-201."
+      }
+    ],
+    "aliases": [
+      "Sponsor Enrollment design and decisions",
+      "MyKC Sponsor Enrollment design and decisions"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QEMYKC",
+        "page_id": "syn-mykc-design-301",
+        "parent_page_id": "syn-mykc-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-MYKC-RUNBOOK-302",
+    "project": "MyKC",
+    "document_type": "runbook",
+    "title": "Sponsor Enrollment triage and recovery runbook",
+    "content": "SYNTHETIC DOCUMENT: MyKC; Sponsor Enrollment triage and recovery runbook.\n\n## When to use\n\nFor the fictional sponsor enrollment incident. The confirmation test clicked an outdated element locator after the review page was redesigned.\n\n## Read-only diagnosis\n\nCapture the masked correlation identifier and environment. Compare the source requirement, observed result and affected revision. Classify product, automation or environment cause without guessing.\n\n## Demo mitigation\n\nUpdate the shared page object to the approved stable test identifier and rerun the affected journey.\n\n## Demo rollback\n\nRevert the page-object change if it selects a different control; preserve the failed-run screenshot without personal data.\n\n## Escalation and safety\n\nEscalation owner: Eli Park, fictional QE lead. These are documentation examples, not permission for an agent to operate production. Request human approval before any state-changing recovery action.\n\nSYN-MYKC-RUNBOOK-302 DIAGNOSES SYN-MYKC-BUG-202.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-MYKC-RUNBOOK-302.md",
+    "access_scope": "public",
+    "owner": "Eli Park (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-MYKC-BUG-202",
+        "type": "DIAGNOSES",
+        "evidence_source_id": "SYN-MYKC-RUNBOOK-302",
+        "evidence_quote": "SYN-MYKC-RUNBOOK-302 DIAGNOSES SYN-MYKC-BUG-202."
+      }
+    ],
+    "aliases": [
+      "Sponsor Enrollment triage and recovery runbook",
+      "MyKC Sponsor Enrollment triage and recovery runbook"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QEMYKC",
+        "page_id": "syn-mykc-runbook-302",
+        "parent_page_id": "syn-mykc-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-CXE-DESIGN-301",
+    "project": "CXE",
+    "document_type": "specification",
+    "title": "Accessible Sign In design and decisions",
+    "content": "SYNTHETIC DOCUMENT: CXE; Accessible Sign In design and decisions.\n\n## Purpose\n\nAllow the complete fictional sign-in journey using a keyboard with clear validation and predictable focus.\n\n## Approved demo design\n\nThe sign-in form uses associated labels, a focusable error summary and an allowlisted return destination. Error rendering does not replace the entire form node. The synthetic accessibility audit records field and focus outcomes, never password values.\n\n## Verification boundary\n\nThe error summary receives focus and links to the invalid field without revealing the entered password.\n\n## Failure and trust boundaries\n\nValidate authorization before state changes. Treat downstream timeouts as unknown outcomes until reconciled with source evidence. A tool's search excerpt is not a complete design document.\n\n## Decision record\n\nReviewed by fictional QE owner Asha Rao. The Jira story defines acceptance; this page explains the design. A contradiction must be reported rather than silently merged.\n\nSYN-CXE-DESIGN-301 EXPLAINS SYN-CXE-STORY-201.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-CXE-DESIGN-301.md",
+    "access_scope": "public",
+    "owner": "Asha Rao (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-CXE-STORY-201",
+        "type": "EXPLAINS",
+        "evidence_source_id": "SYN-CXE-DESIGN-301",
+        "evidence_quote": "SYN-CXE-DESIGN-301 EXPLAINS SYN-CXE-STORY-201."
+      }
+    ],
+    "aliases": [
+      "Accessible Sign In design and decisions",
+      "CXE Accessible Sign In design and decisions"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QECXE",
+        "page_id": "syn-cxe-design-301",
+        "parent_page_id": "syn-cxe-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-CXE-RUNBOOK-302",
+    "project": "CXE",
+    "document_type": "runbook",
+    "title": "Accessible Sign In triage and recovery runbook",
+    "content": "SYNTHETIC DOCUMENT: CXE; Accessible Sign In triage and recovery runbook.\n\n## When to use\n\nFor the fictional accessible sign in incident. After invalid credentials, focus moved to the page body instead of the error summary.\n\n## Read-only diagnosis\n\nCapture the masked correlation identifier and environment. Compare the source requirement, observed result and affected revision. Classify product, automation or environment cause without guessing.\n\n## Demo mitigation\n\nRestore focus to the error summary after rendering and rerun the keyboard journey checks.\n\n## Demo rollback\n\nRestore the previous error-rendering component in the demo environment if focus ordering regresses.\n\n## Escalation and safety\n\nEscalation owner: Asha Rao, fictional QE lead. These are documentation examples, not permission for an agent to operate production. Request human approval before any state-changing recovery action.\n\nSYN-CXE-RUNBOOK-302 DIAGNOSES SYN-CXE-BUG-202.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-CXE-RUNBOOK-302.md",
+    "access_scope": "public",
+    "owner": "Asha Rao (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-CXE-BUG-202",
+        "type": "DIAGNOSES",
+        "evidence_source_id": "SYN-CXE-RUNBOOK-302",
+        "evidence_quote": "SYN-CXE-RUNBOOK-302 DIAGNOSES SYN-CXE-BUG-202."
+      }
+    ],
+    "aliases": [
+      "Accessible Sign In triage and recovery runbook",
+      "CXE Accessible Sign In triage and recovery runbook"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QECXE",
+        "page_id": "syn-cxe-runbook-302",
+        "parent_page_id": "syn-cxe-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-SPROG-DESIGN-301",
+    "project": "SPROG",
+    "document_type": "specification",
+    "title": "Entitlement Activation design and decisions",
+    "content": "SYNTHETIC DOCUMENT: SPROG; Entitlement Activation design and decisions.\n\n## Purpose\n\nKeep API, database and UI entitlement state consistent after an activation event.\n\n## Approved demo design\n\nActivation uses an event version and a correlation identifier. The projection applies only newer versions, and the UI reads the committed projection rather than assuming success from request acceptance. Duplicate events are acknowledged without repeated side effects.\n\n## Verification boundary\n\nThe projection remains deactivated at version 8 and no extra activation notification is sent.\n\n## Failure and trust boundaries\n\nValidate authorization before state changes. Treat downstream timeouts as unknown outcomes until reconciled with source evidence. A tool's search excerpt is not a complete design document.\n\n## Decision record\n\nReviewed by fictional QE owner Theo Diaz. The Jira story defines acceptance; this page explains the design. A contradiction must be reported rather than silently merged.\n\nSYN-SPROG-DESIGN-301 EXPLAINS SYN-SPROG-STORY-201.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-SPROG-DESIGN-301.md",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-SPROG-STORY-201",
+        "type": "EXPLAINS",
+        "evidence_source_id": "SYN-SPROG-DESIGN-301",
+        "evidence_quote": "SYN-SPROG-DESIGN-301 EXPLAINS SYN-SPROG-STORY-201."
+      }
+    ],
+    "aliases": [
+      "Entitlement Activation design and decisions",
+      "SPROG Entitlement Activation design and decisions"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QESPROG",
+        "page_id": "syn-sprog-design-301",
+        "parent_page_id": "syn-sprog-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "confluence",
+    "source_id": "SYN-SPROG-RUNBOOK-302",
+    "project": "SPROG",
+    "document_type": "runbook",
+    "title": "Entitlement Activation triage and recovery runbook",
+    "content": "SYNTHETIC DOCUMENT: SPROG; Entitlement Activation triage and recovery runbook.\n\n## When to use\n\nFor the fictional entitlement activation incident. A delayed activation event overwrote a newer deactivation state in the read projection.\n\n## Read-only diagnosis\n\nCapture the masked correlation identifier and environment. Compare the source requirement, observed result and affected revision. Classify product, automation or environment cause without guessing.\n\n## Demo mitigation\n\nPause the demo event consumer, inspect version checks and replay only the approved synthetic event sequence.\n\n## Demo rollback\n\nRestore the last validated projection snapshot and replay the synthetic journal in version order before resuming the consumer.\n\n## Escalation and safety\n\nEscalation owner: Theo Diaz, fictional QE lead. These are documentation examples, not permission for an agent to operate production. Request human approval before any state-changing recovery action.\n\nSYN-SPROG-RUNBOOK-302 DIAGNOSES SYN-SPROG-BUG-202.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/confluence/SYN-SPROG-RUNBOOK-302.md",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-SPROG-BUG-202",
+        "type": "DIAGNOSES",
+        "evidence_source_id": "SYN-SPROG-RUNBOOK-302",
+        "evidence_quote": "SYN-SPROG-RUNBOOK-302 DIAGNOSES SYN-SPROG-BUG-202."
+      }
+    ],
+    "aliases": [
+      "Entitlement Activation triage and recovery runbook",
+      "SPROG Entitlement Activation triage and recovery runbook"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "atlassian_rovo",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "page",
+        "site_alias": "synthetic-atlassian",
+        "space_key": "QESPROG",
+        "page_id": "syn-sprog-runbook-302",
+        "parent_page_id": "syn-sprog-space-home",
+        "version": 1
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  }
+]

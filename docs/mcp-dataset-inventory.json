@@ -1,0 +1,20 @@
+{
+  "dataset": "qei-native-mcp-documentation-v1",
+  "synthetic": true,
+  "native_servers_connected": false,
+  "records": 36,
+  "by_source": {
+    "jira": 12,
+    "confluence": 12,
+    "sharepoint": 12
+  },
+  "relationships": 60,
+  "projects": [
+    "BSP Services",
+    "Salesforce",
+    "WebOps",
+    "MyKC",
+    "CXE",
+    "SPROG"
+  ]
+}

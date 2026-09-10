@@ -1,0 +1,830 @@
+[
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-BSP-PLAN-401",
+    "project": "BSP Services",
+    "document_type": "test_strategy",
+    "title": "Payment Idempotency QE test strategy",
+    "content": "SYNTHETIC DOCUMENT: BSP Services; Payment Idempotency QE test strategy.\n\n## Objective\n\nPrevent duplicate payment ledger entries when an authorized client retries a request.\n\n## Coverage and boundaries\n\nExercise repeated, concurrent and cross-tenant keys; changed amounts; boundary timings of 29, 30 and 31 seconds; expired authorization; and writer failure.\n\n## Test data and database validation\n\nUse fictional account DEMO-PAYER-001 and generated nonfinancial amounts. Validate payments.idempotency_key and ledger counts with a read-only fixture.\n\n## Execution evidence\n\nRecord test identifier, source revision, environment, observed outcome and duration. Link the exact acceptance criterion. A planned test is not proof of executed coverage; synthetic results never modify the supplied TestOps CSV.\n\n## Review\n\nDocument owner: Mira Chen. Review status: approved as a fictional test plan, not execution sign-off. Keep automation defects separate from product failures.\n\nSYN-BSP-PLAN-401 PLANS_COVERAGE SYN-BSP-STORY-201.\n\nSYN-BSP-PLAN-401 USES_DESIGN SYN-BSP-DESIGN-301.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-BSP-PLAN-401.md",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-BSP-STORY-201",
+        "type": "PLANS_COVERAGE",
+        "evidence_source_id": "SYN-BSP-PLAN-401",
+        "evidence_quote": "SYN-BSP-PLAN-401 PLANS_COVERAGE SYN-BSP-STORY-201."
+      },
+      {
+        "target": "SYN-BSP-DESIGN-301",
+        "type": "USES_DESIGN",
+        "evidence_source_id": "SYN-BSP-PLAN-401",
+        "evidence_quote": "SYN-BSP-PLAN-401 USES_DESIGN SYN-BSP-DESIGN-301."
+      }
+    ],
+    "aliases": [
+      "Payment Idempotency QE test strategy",
+      "BSP Services Payment Idempotency QE test strategy"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-bsp",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-bsp-plan-401",
+        "library": "QE Documentation",
+        "file_name": "BSP-QE-Test-Strategy.md",
+        "version_label": "1.0",
+        "content_type": "text/markdown",
+        "etag": "synthetic-bsp-plan-v1"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-BSP-RELEASE-402",
+    "project": "BSP Services",
+    "document_type": "release_checklist",
+    "title": "Payment Idempotency release evidence checklist",
+    "content": "SYNTHETIC DOCUMENT: BSP Services; Payment Idempotency release evidence checklist.\n\n## Entry criteria\n\nThe Jira acceptance criteria and Confluence design must reference the same reviewed scope. Source access and evidence freshness must be checked before a release review.\n\n## Exit criteria\n\nNo duplicate ledger writes in the concurrency suite; payment-scope negative tests pass; rollback rehearsal evidence is attached.\n\n## Outstanding evidence\n\nThe linked synthetic Jira bug remains open. Execution sign-off: pending. Security review: pending. QE reviewer: Mira Chen. No production release approval is provided by this checklist.\n\n## Evidence package\n\nInclude cited requirement and design versions, test results, defect disposition and a reviewed rollback record. If a document is unavailable through MCP, report the missing evidence; do not infer approval from its filename.\n\nSYN-BSP-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-BSP-STORY-201.\n\nSYN-BSP-RELEASE-402 REQUIRES_PLAN SYN-BSP-PLAN-401.\n\nSYN-BSP-RELEASE-402 BLOCKED_BY SYN-BSP-BUG-202.\n\nSYN-BSP-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-BSP-RUNBOOK-302.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-BSP-RELEASE-402.md",
+    "access_scope": "public",
+    "owner": "Mira Chen (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "pending",
+    "version": "0.9",
+    "facts": {
+      "release_approval": "Pending"
+    },
+    "relationships": [
+      {
+        "target": "SYN-BSP-STORY-201",
+        "type": "REQUIRES_EVIDENCE_FOR",
+        "evidence_source_id": "SYN-BSP-RELEASE-402",
+        "evidence_quote": "SYN-BSP-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-BSP-STORY-201."
+      },
+      {
+        "target": "SYN-BSP-PLAN-401",
+        "type": "REQUIRES_PLAN",
+        "evidence_source_id": "SYN-BSP-RELEASE-402",
+        "evidence_quote": "SYN-BSP-RELEASE-402 REQUIRES_PLAN SYN-BSP-PLAN-401."
+      },
+      {
+        "target": "SYN-BSP-BUG-202",
+        "type": "BLOCKED_BY",
+        "evidence_source_id": "SYN-BSP-RELEASE-402",
+        "evidence_quote": "SYN-BSP-RELEASE-402 BLOCKED_BY SYN-BSP-BUG-202."
+      },
+      {
+        "target": "SYN-BSP-RUNBOOK-302",
+        "type": "REQUIRES_ROLLBACK_REVIEW",
+        "evidence_source_id": "SYN-BSP-RELEASE-402",
+        "evidence_quote": "SYN-BSP-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-BSP-RUNBOOK-302."
+      }
+    ],
+    "aliases": [
+      "Payment Idempotency release evidence checklist",
+      "BSP Services Payment Idempotency release evidence checklist"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-bsp",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-bsp-release-402",
+        "library": "QE Documentation",
+        "file_name": "BSP-Release-Evidence.md",
+        "version_label": "0.9",
+        "content_type": "text/markdown",
+        "etag": "synthetic-bsp-release-v09"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-SF-PLAN-401",
+    "project": "Salesforce",
+    "document_type": "test_strategy",
+    "title": "Opportunity Approval QE test strategy",
+    "content": "SYNTHETIC DOCUMENT: Salesforce; Opportunity Approval QE test strategy.\n\n## Objective\n\nPrevent an opportunity from closing before an authorized manager approves the matching revision.\n\n## Coverage and boundaries\n\nCover representative, manager and read-only roles; approval rejection; edited amounts; duplicate callbacks; stale approvals; and stage-transition audit records.\n\n## Test data and database validation\n\nUse fictional opportunity DEMO-OPP-001, synthetic manager/representative personas and opportunity.approval_status. Do not copy customer opportunity data.\n\n## Execution evidence\n\nRecord test identifier, source revision, environment, observed outcome and duration. Link the exact acceptance criterion. A planned test is not proof of executed coverage; synthetic results never modify the supplied TestOps CSV.\n\n## Review\n\nDocument owner: Owen Shah. Review status: approved as a fictional test plan, not execution sign-off. Keep automation defects separate from product failures.\n\nSYN-SF-PLAN-401 PLANS_COVERAGE SYN-SF-STORY-201.\n\nSYN-SF-PLAN-401 USES_DESIGN SYN-SF-DESIGN-301.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-SF-PLAN-401.md",
+    "access_scope": "public",
+    "owner": "Owen Shah (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-SF-STORY-201",
+        "type": "PLANS_COVERAGE",
+        "evidence_source_id": "SYN-SF-PLAN-401",
+        "evidence_quote": "SYN-SF-PLAN-401 PLANS_COVERAGE SYN-SF-STORY-201."
+      },
+      {
+        "target": "SYN-SF-DESIGN-301",
+        "type": "USES_DESIGN",
+        "evidence_source_id": "SYN-SF-PLAN-401",
+        "evidence_quote": "SYN-SF-PLAN-401 USES_DESIGN SYN-SF-DESIGN-301."
+      }
+    ],
+    "aliases": [
+      "Opportunity Approval QE test strategy",
+      "Salesforce Opportunity Approval QE test strategy"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-sf",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-sf-plan-401",
+        "library": "QE Documentation",
+        "file_name": "SF-QE-Test-Strategy.md",
+        "version_label": "1.0",
+        "content_type": "text/markdown",
+        "etag": "synthetic-sf-plan-v1"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-SF-RELEASE-402",
+    "project": "Salesforce",
+    "document_type": "release_checklist",
+    "title": "Opportunity Approval release evidence checklist",
+    "content": "SYNTHETIC DOCUMENT: Salesforce; Opportunity Approval release evidence checklist.\n\n## Entry criteria\n\nThe Jira acceptance criteria and Confluence design must reference the same reviewed scope. Source access and evidence freshness must be checked before a release review.\n\n## Exit criteria\n\nRevision mismatch and self-approval tests pass; no unapproved close transitions remain; a manager and QE owner sign the demo evidence pack.\n\n## Outstanding evidence\n\nThe linked synthetic Jira bug remains open. Execution sign-off: pending. Security review: pending. QE reviewer: Owen Shah. No production release approval is provided by this checklist.\n\n## Evidence package\n\nInclude cited requirement and design versions, test results, defect disposition and a reviewed rollback record. If a document is unavailable through MCP, report the missing evidence; do not infer approval from its filename.\n\nSYN-SF-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-SF-STORY-201.\n\nSYN-SF-RELEASE-402 REQUIRES_PLAN SYN-SF-PLAN-401.\n\nSYN-SF-RELEASE-402 BLOCKED_BY SYN-SF-BUG-202.\n\nSYN-SF-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-SF-RUNBOOK-302.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-SF-RELEASE-402.md",
+    "access_scope": "public",
+    "owner": "Owen Shah (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "pending",
+    "version": "0.9",
+    "facts": {
+      "release_approval": "Pending"
+    },
+    "relationships": [
+      {
+        "target": "SYN-SF-STORY-201",
+        "type": "REQUIRES_EVIDENCE_FOR",
+        "evidence_source_id": "SYN-SF-RELEASE-402",
+        "evidence_quote": "SYN-SF-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-SF-STORY-201."
+      },
+      {
+        "target": "SYN-SF-PLAN-401",
+        "type": "REQUIRES_PLAN",
+        "evidence_source_id": "SYN-SF-RELEASE-402",
+        "evidence_quote": "SYN-SF-RELEASE-402 REQUIRES_PLAN SYN-SF-PLAN-401."
+      },
+      {
+        "target": "SYN-SF-BUG-202",
+        "type": "BLOCKED_BY",
+        "evidence_source_id": "SYN-SF-RELEASE-402",
+        "evidence_quote": "SYN-SF-RELEASE-402 BLOCKED_BY SYN-SF-BUG-202."
+      },
+      {
+        "target": "SYN-SF-RUNBOOK-302",
+        "type": "REQUIRES_ROLLBACK_REVIEW",
+        "evidence_source_id": "SYN-SF-RELEASE-402",
+        "evidence_quote": "SYN-SF-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-SF-RUNBOOK-302."
+      }
+    ],
+    "aliases": [
+      "Opportunity Approval release evidence checklist",
+      "Salesforce Opportunity Approval release evidence checklist"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-sf",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-sf-release-402",
+        "library": "QE Documentation",
+        "file_name": "SF-Release-Evidence.md",
+        "version_label": "0.9",
+        "content_type": "text/markdown",
+        "etag": "synthetic-sf-release-v09"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-WEB-PLAN-401",
+    "project": "WebOps",
+    "document_type": "test_strategy",
+    "title": "Checkout Recovery QE test strategy",
+    "content": "SYNTHETIC DOCUMENT: WebOps; Checkout Recovery QE test strategy.\n\n## Objective\n\nRecover a customer's cart after session expiry without exposing another customer's cart or preserving invalid prices.\n\n## Coverage and boundaries\n\nTest same-account and cross-account tokens, expired and replayed tokens, changed inventory, removed promotions and interruption during order creation.\n\n## Test data and database validation\n\nUse fictional shopper DEMO-SHOPPER-001, synthetic catalog items and checkout.recovery_token. No real customer sessions or tokens are recorded.\n\n## Execution evidence\n\nRecord test identifier, source revision, environment, observed outcome and duration. Link the exact acceptance criterion. A planned test is not proof of executed coverage; synthetic results never modify the supplied TestOps CSV.\n\n## Review\n\nDocument owner: Nora Kim. Review status: approved as a fictional test plan, not execution sign-off. Keep automation defects separate from product failures.\n\nSYN-WEB-PLAN-401 PLANS_COVERAGE SYN-WEB-STORY-201.\n\nSYN-WEB-PLAN-401 USES_DESIGN SYN-WEB-DESIGN-301.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-WEB-PLAN-401.md",
+    "access_scope": "public",
+    "owner": "Nora Kim (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-WEB-STORY-201",
+        "type": "PLANS_COVERAGE",
+        "evidence_source_id": "SYN-WEB-PLAN-401",
+        "evidence_quote": "SYN-WEB-PLAN-401 PLANS_COVERAGE SYN-WEB-STORY-201."
+      },
+      {
+        "target": "SYN-WEB-DESIGN-301",
+        "type": "USES_DESIGN",
+        "evidence_source_id": "SYN-WEB-PLAN-401",
+        "evidence_quote": "SYN-WEB-PLAN-401 USES_DESIGN SYN-WEB-DESIGN-301."
+      }
+    ],
+    "aliases": [
+      "Checkout Recovery QE test strategy",
+      "WebOps Checkout Recovery QE test strategy"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-web",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-web-plan-401",
+        "library": "QE Documentation",
+        "file_name": "WEB-QE-Test-Strategy.md",
+        "version_label": "1.0",
+        "content_type": "text/markdown",
+        "etag": "synthetic-web-plan-v1"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-WEB-RELEASE-402",
+    "project": "WebOps",
+    "document_type": "release_checklist",
+    "title": "Checkout Recovery release evidence checklist",
+    "content": "SYNTHETIC DOCUMENT: WebOps; Checkout Recovery release evidence checklist.\n\n## Entry criteria\n\nThe Jira acceptance criteria and Confluence design must reference the same reviewed scope. Source access and evidence freshness must be checked before a release review.\n\n## Exit criteria\n\nCross-account isolation and token-replay checks pass; the repricing defect is resolved or explicitly blocks the demo release.\n\n## Outstanding evidence\n\nThe linked synthetic Jira bug remains open. Execution sign-off: pending. Security review: pending. QE reviewer: Nora Kim. No production release approval is provided by this checklist.\n\n## Evidence package\n\nInclude cited requirement and design versions, test results, defect disposition and a reviewed rollback record. If a document is unavailable through MCP, report the missing evidence; do not infer approval from its filename.\n\nSYN-WEB-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-WEB-STORY-201.\n\nSYN-WEB-RELEASE-402 REQUIRES_PLAN SYN-WEB-PLAN-401.\n\nSYN-WEB-RELEASE-402 BLOCKED_BY SYN-WEB-BUG-202.\n\nSYN-WEB-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-WEB-RUNBOOK-302.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-WEB-RELEASE-402.md",
+    "access_scope": "public",
+    "owner": "Nora Kim (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "pending",
+    "version": "0.9",
+    "facts": {
+      "release_approval": "Pending"
+    },
+    "relationships": [
+      {
+        "target": "SYN-WEB-STORY-201",
+        "type": "REQUIRES_EVIDENCE_FOR",
+        "evidence_source_id": "SYN-WEB-RELEASE-402",
+        "evidence_quote": "SYN-WEB-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-WEB-STORY-201."
+      },
+      {
+        "target": "SYN-WEB-PLAN-401",
+        "type": "REQUIRES_PLAN",
+        "evidence_source_id": "SYN-WEB-RELEASE-402",
+        "evidence_quote": "SYN-WEB-RELEASE-402 REQUIRES_PLAN SYN-WEB-PLAN-401."
+      },
+      {
+        "target": "SYN-WEB-BUG-202",
+        "type": "BLOCKED_BY",
+        "evidence_source_id": "SYN-WEB-RELEASE-402",
+        "evidence_quote": "SYN-WEB-RELEASE-402 BLOCKED_BY SYN-WEB-BUG-202."
+      },
+      {
+        "target": "SYN-WEB-RUNBOOK-302",
+        "type": "REQUIRES_ROLLBACK_REVIEW",
+        "evidence_source_id": "SYN-WEB-RELEASE-402",
+        "evidence_quote": "SYN-WEB-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-WEB-RUNBOOK-302."
+      }
+    ],
+    "aliases": [
+      "Checkout Recovery release evidence checklist",
+      "WebOps Checkout Recovery release evidence checklist"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-web",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-web-release-402",
+        "library": "QE Documentation",
+        "file_name": "WEB-Release-Evidence.md",
+        "version_label": "0.9",
+        "content_type": "text/markdown",
+        "etag": "synthetic-web-release-v09"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-MYKC-PLAN-401",
+    "project": "MyKC",
+    "document_type": "test_strategy",
+    "title": "Sponsor Enrollment QE test strategy",
+    "content": "SYNTHETIC DOCUMENT: MyKC; Sponsor Enrollment QE test strategy.\n\n## Objective\n\nSubmit one enrollment for a sponsor even when the browser retries after a timeout.\n\n## Coverage and boundaries\n\nCover repeated submits, transport timeout, duplicate business identity, keyboard validation, server validation and the review-to-confirmation transition.\n\n## Test data and database validation\n\nUse fictional sponsor DEMO-SPONSOR-001, a generated enrollment key and sponsor.enrollment_key. Do not use real sponsor names or addresses.\n\n## Execution evidence\n\nRecord test identifier, source revision, environment, observed outcome and duration. Link the exact acceptance criterion. A planned test is not proof of executed coverage; synthetic results never modify the supplied TestOps CSV.\n\n## Review\n\nDocument owner: Eli Park. Review status: approved as a fictional test plan, not execution sign-off. Keep automation defects separate from product failures.\n\nSYN-MYKC-PLAN-401 PLANS_COVERAGE SYN-MYKC-STORY-201.\n\nSYN-MYKC-PLAN-401 USES_DESIGN SYN-MYKC-DESIGN-301.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-MYKC-PLAN-401.md",
+    "access_scope": "public",
+    "owner": "Eli Park (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-MYKC-STORY-201",
+        "type": "PLANS_COVERAGE",
+        "evidence_source_id": "SYN-MYKC-PLAN-401",
+        "evidence_quote": "SYN-MYKC-PLAN-401 PLANS_COVERAGE SYN-MYKC-STORY-201."
+      },
+      {
+        "target": "SYN-MYKC-DESIGN-301",
+        "type": "USES_DESIGN",
+        "evidence_source_id": "SYN-MYKC-PLAN-401",
+        "evidence_quote": "SYN-MYKC-PLAN-401 USES_DESIGN SYN-MYKC-DESIGN-301."
+      }
+    ],
+    "aliases": [
+      "Sponsor Enrollment QE test strategy",
+      "MyKC Sponsor Enrollment QE test strategy"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-mykc",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-mykc-plan-401",
+        "library": "QE Documentation",
+        "file_name": "MYKC-QE-Test-Strategy.md",
+        "version_label": "1.0",
+        "content_type": "text/markdown",
+        "etag": "synthetic-mykc-plan-v1"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-MYKC-RELEASE-402",
+    "project": "MyKC",
+    "document_type": "release_checklist",
+    "title": "Sponsor Enrollment release evidence checklist",
+    "content": "SYNTHETIC DOCUMENT: MyKC; Sponsor Enrollment release evidence checklist.\n\n## Entry criteria\n\nThe Jira acceptance criteria and Confluence design must reference the same reviewed scope. Source access and evidence freshness must be checked before a release review.\n\n## Exit criteria\n\nThe shared locator fix is reviewed; duplicate-enrollment and required-field scenarios pass; the automation-only failure is documented separately.\n\n## Outstanding evidence\n\nThe linked synthetic Jira bug remains open. Execution sign-off: pending. Security review: pending. QE reviewer: Eli Park. No production release approval is provided by this checklist.\n\n## Evidence package\n\nInclude cited requirement and design versions, test results, defect disposition and a reviewed rollback record. If a document is unavailable through MCP, report the missing evidence; do not infer approval from its filename.\n\nSYN-MYKC-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-MYKC-STORY-201.\n\nSYN-MYKC-RELEASE-402 REQUIRES_PLAN SYN-MYKC-PLAN-401.\n\nSYN-MYKC-RELEASE-402 BLOCKED_BY SYN-MYKC-BUG-202.\n\nSYN-MYKC-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-MYKC-RUNBOOK-302.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-MYKC-RELEASE-402.md",
+    "access_scope": "public",
+    "owner": "Eli Park (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "pending",
+    "version": "0.9",
+    "facts": {
+      "release_approval": "Pending"
+    },
+    "relationships": [
+      {
+        "target": "SYN-MYKC-STORY-201",
+        "type": "REQUIRES_EVIDENCE_FOR",
+        "evidence_source_id": "SYN-MYKC-RELEASE-402",
+        "evidence_quote": "SYN-MYKC-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-MYKC-STORY-201."
+      },
+      {
+        "target": "SYN-MYKC-PLAN-401",
+        "type": "REQUIRES_PLAN",
+        "evidence_source_id": "SYN-MYKC-RELEASE-402",
+        "evidence_quote": "SYN-MYKC-RELEASE-402 REQUIRES_PLAN SYN-MYKC-PLAN-401."
+      },
+      {
+        "target": "SYN-MYKC-BUG-202",
+        "type": "BLOCKED_BY",
+        "evidence_source_id": "SYN-MYKC-RELEASE-402",
+        "evidence_quote": "SYN-MYKC-RELEASE-402 BLOCKED_BY SYN-MYKC-BUG-202."
+      },
+      {
+        "target": "SYN-MYKC-RUNBOOK-302",
+        "type": "REQUIRES_ROLLBACK_REVIEW",
+        "evidence_source_id": "SYN-MYKC-RELEASE-402",
+        "evidence_quote": "SYN-MYKC-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-MYKC-RUNBOOK-302."
+      }
+    ],
+    "aliases": [
+      "Sponsor Enrollment release evidence checklist",
+      "MyKC Sponsor Enrollment release evidence checklist"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-mykc",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-mykc-release-402",
+        "library": "QE Documentation",
+        "file_name": "MYKC-Release-Evidence.md",
+        "version_label": "0.9",
+        "content_type": "text/markdown",
+        "etag": "synthetic-mykc-release-v09"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-CXE-PLAN-401",
+    "project": "CXE",
+    "document_type": "test_strategy",
+    "title": "Accessible Sign In QE test strategy",
+    "content": "SYNTHETIC DOCUMENT: CXE; Accessible Sign In QE test strategy.\n\n## Objective\n\nAllow the complete fictional sign-in journey using a keyboard with clear validation and predictable focus.\n\n## Coverage and boundaries\n\nCover keyboard-only navigation, visible focus, field error association, repeated failed submits, destination preservation and external-redirect rejection.\n\n## Test data and database validation\n\nUse fictional identity DEMO-CXE-USER-001 and synthetic invalid inputs. Store only focus outcomes in identity.accessibility_audit, not credentials.\n\n## Execution evidence\n\nRecord test identifier, source revision, environment, observed outcome and duration. Link the exact acceptance criterion. A planned test is not proof of executed coverage; synthetic results never modify the supplied TestOps CSV.\n\n## Review\n\nDocument owner: Asha Rao. Review status: approved as a fictional test plan, not execution sign-off. Keep automation defects separate from product failures.\n\nSYN-CXE-PLAN-401 PLANS_COVERAGE SYN-CXE-STORY-201.\n\nSYN-CXE-PLAN-401 USES_DESIGN SYN-CXE-DESIGN-301.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-CXE-PLAN-401.md",
+    "access_scope": "public",
+    "owner": "Asha Rao (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-CXE-STORY-201",
+        "type": "PLANS_COVERAGE",
+        "evidence_source_id": "SYN-CXE-PLAN-401",
+        "evidence_quote": "SYN-CXE-PLAN-401 PLANS_COVERAGE SYN-CXE-STORY-201."
+      },
+      {
+        "target": "SYN-CXE-DESIGN-301",
+        "type": "USES_DESIGN",
+        "evidence_source_id": "SYN-CXE-PLAN-401",
+        "evidence_quote": "SYN-CXE-PLAN-401 USES_DESIGN SYN-CXE-DESIGN-301."
+      }
+    ],
+    "aliases": [
+      "Accessible Sign In QE test strategy",
+      "CXE Accessible Sign In QE test strategy"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-cxe",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-cxe-plan-401",
+        "library": "QE Documentation",
+        "file_name": "CXE-QE-Test-Strategy.md",
+        "version_label": "1.0",
+        "content_type": "text/markdown",
+        "etag": "synthetic-cxe-plan-v1"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-CXE-RELEASE-402",
+    "project": "CXE",
+    "document_type": "release_checklist",
+    "title": "Accessible Sign In release evidence checklist",
+    "content": "SYNTHETIC DOCUMENT: CXE; Accessible Sign In release evidence checklist.\n\n## Entry criteria\n\nThe Jira acceptance criteria and Confluence design must reference the same reviewed scope. Source access and evidence freshness must be checked before a release review.\n\n## Exit criteria\n\nKeyboard journey and error-focus checks pass; redirect rejection is verified; manual assistive-technology review is recorded as pending, not fabricated.\n\n## Outstanding evidence\n\nThe linked synthetic Jira bug remains open. Execution sign-off: pending. Security review: pending. QE reviewer: Asha Rao. No production release approval is provided by this checklist.\n\n## Evidence package\n\nInclude cited requirement and design versions, test results, defect disposition and a reviewed rollback record. If a document is unavailable through MCP, report the missing evidence; do not infer approval from its filename.\n\nSYN-CXE-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-CXE-STORY-201.\n\nSYN-CXE-RELEASE-402 REQUIRES_PLAN SYN-CXE-PLAN-401.\n\nSYN-CXE-RELEASE-402 BLOCKED_BY SYN-CXE-BUG-202.\n\nSYN-CXE-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-CXE-RUNBOOK-302.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-CXE-RELEASE-402.md",
+    "access_scope": "public",
+    "owner": "Asha Rao (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "pending",
+    "version": "0.9",
+    "facts": {
+      "release_approval": "Pending"
+    },
+    "relationships": [
+      {
+        "target": "SYN-CXE-STORY-201",
+        "type": "REQUIRES_EVIDENCE_FOR",
+        "evidence_source_id": "SYN-CXE-RELEASE-402",
+        "evidence_quote": "SYN-CXE-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-CXE-STORY-201."
+      },
+      {
+        "target": "SYN-CXE-PLAN-401",
+        "type": "REQUIRES_PLAN",
+        "evidence_source_id": "SYN-CXE-RELEASE-402",
+        "evidence_quote": "SYN-CXE-RELEASE-402 REQUIRES_PLAN SYN-CXE-PLAN-401."
+      },
+      {
+        "target": "SYN-CXE-BUG-202",
+        "type": "BLOCKED_BY",
+        "evidence_source_id": "SYN-CXE-RELEASE-402",
+        "evidence_quote": "SYN-CXE-RELEASE-402 BLOCKED_BY SYN-CXE-BUG-202."
+      },
+      {
+        "target": "SYN-CXE-RUNBOOK-302",
+        "type": "REQUIRES_ROLLBACK_REVIEW",
+        "evidence_source_id": "SYN-CXE-RELEASE-402",
+        "evidence_quote": "SYN-CXE-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-CXE-RUNBOOK-302."
+      }
+    ],
+    "aliases": [
+      "Accessible Sign In release evidence checklist",
+      "CXE Accessible Sign In release evidence checklist"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-cxe",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-cxe-release-402",
+        "library": "QE Documentation",
+        "file_name": "CXE-Release-Evidence.md",
+        "version_label": "0.9",
+        "content_type": "text/markdown",
+        "etag": "synthetic-cxe-release-v09"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-SPROG-PLAN-401",
+    "project": "SPROG",
+    "document_type": "test_strategy",
+    "title": "Entitlement Activation QE test strategy",
+    "content": "SYNTHETIC DOCUMENT: SPROG; Entitlement Activation QE test strategy.\n\n## Objective\n\nKeep API, database and UI entitlement state consistent after an activation event.\n\n## Coverage and boundaries\n\nCombine API contract tests, projection queries and UI journey checks for pending states, duplicate events, out-of-order delivery and consumer restart.\n\n## Test data and database validation\n\nUse fictional entitlement DEMO-ENTITLEMENT-001 and synthetic events with versions 7 and 8. Validate entitlement.activation_state through a read-only fixture.\n\n## Execution evidence\n\nRecord test identifier, source revision, environment, observed outcome and duration. Link the exact acceptance criterion. A planned test is not proof of executed coverage; synthetic results never modify the supplied TestOps CSV.\n\n## Review\n\nDocument owner: Theo Diaz. Review status: approved as a fictional test plan, not execution sign-off. Keep automation defects separate from product failures.\n\nSYN-SPROG-PLAN-401 PLANS_COVERAGE SYN-SPROG-STORY-201.\n\nSYN-SPROG-PLAN-401 USES_DESIGN SYN-SPROG-DESIGN-301.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-SPROG-PLAN-401.md",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "approved",
+    "version": "1.0",
+    "facts": {},
+    "relationships": [
+      {
+        "target": "SYN-SPROG-STORY-201",
+        "type": "PLANS_COVERAGE",
+        "evidence_source_id": "SYN-SPROG-PLAN-401",
+        "evidence_quote": "SYN-SPROG-PLAN-401 PLANS_COVERAGE SYN-SPROG-STORY-201."
+      },
+      {
+        "target": "SYN-SPROG-DESIGN-301",
+        "type": "USES_DESIGN",
+        "evidence_source_id": "SYN-SPROG-PLAN-401",
+        "evidence_quote": "SYN-SPROG-PLAN-401 USES_DESIGN SYN-SPROG-DESIGN-301."
+      }
+    ],
+    "aliases": [
+      "Entitlement Activation QE test strategy",
+      "SPROG Entitlement Activation QE test strategy"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-sprog",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-sprog-plan-401",
+        "library": "QE Documentation",
+        "file_name": "SPROG-QE-Test-Strategy.md",
+        "version_label": "1.0",
+        "content_type": "text/markdown",
+        "etag": "synthetic-sprog-plan-v1"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  },
+  {
+    "source_type": "sharepoint",
+    "source_id": "SYN-SPROG-RELEASE-402",
+    "project": "SPROG",
+    "document_type": "release_checklist",
+    "title": "Entitlement Activation release evidence checklist",
+    "content": "SYNTHETIC DOCUMENT: SPROG; Entitlement Activation release evidence checklist.\n\n## Entry criteria\n\nThe Jira acceptance criteria and Confluence design must reference the same reviewed scope. Source access and evidence freshness must be checked before a release review.\n\n## Exit criteria\n\nOut-of-order and duplicate-event tests pass across API, UI and database; projection recovery is demonstrated with a synthetic journal.\n\n## Outstanding evidence\n\nThe linked synthetic Jira bug remains open. Execution sign-off: pending. Security review: pending. QE reviewer: Theo Diaz. No production release approval is provided by this checklist.\n\n## Evidence package\n\nInclude cited requirement and design versions, test results, defect disposition and a reviewed rollback record. If a document is unavailable through MCP, report the missing evidence; do not infer approval from its filename.\n\nSYN-SPROG-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-SPROG-STORY-201.\n\nSYN-SPROG-RELEASE-402 REQUIRES_PLAN SYN-SPROG-PLAN-401.\n\nSYN-SPROG-RELEASE-402 BLOCKED_BY SYN-SPROG-BUG-202.\n\nSYN-SPROG-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-SPROG-RUNBOOK-302.",
+    "authoritative_level": 4,
+    "created_at": "2026-09-02T09:00:00Z",
+    "updated_at": "2026-09-09T14:00:00Z",
+    "url": "https://github.com/lkalyanams29/qei-knowledge-intelligence-week2/blob/codex/python-streamlit-graphrag/data/mcp_samples/documents/sharepoint/SYN-SPROG-RELEASE-402.md",
+    "access_scope": "public",
+    "owner": "Theo Diaz (fictional)",
+    "synthetic": true,
+    "dataset": "qei-native-mcp-documentation-v1",
+    "approval_status": "pending",
+    "version": "0.9",
+    "facts": {
+      "release_approval": "Pending"
+    },
+    "relationships": [
+      {
+        "target": "SYN-SPROG-STORY-201",
+        "type": "REQUIRES_EVIDENCE_FOR",
+        "evidence_source_id": "SYN-SPROG-RELEASE-402",
+        "evidence_quote": "SYN-SPROG-RELEASE-402 REQUIRES_EVIDENCE_FOR SYN-SPROG-STORY-201."
+      },
+      {
+        "target": "SYN-SPROG-PLAN-401",
+        "type": "REQUIRES_PLAN",
+        "evidence_source_id": "SYN-SPROG-RELEASE-402",
+        "evidence_quote": "SYN-SPROG-RELEASE-402 REQUIRES_PLAN SYN-SPROG-PLAN-401."
+      },
+      {
+        "target": "SYN-SPROG-BUG-202",
+        "type": "BLOCKED_BY",
+        "evidence_source_id": "SYN-SPROG-RELEASE-402",
+        "evidence_quote": "SYN-SPROG-RELEASE-402 BLOCKED_BY SYN-SPROG-BUG-202."
+      },
+      {
+        "target": "SYN-SPROG-RUNBOOK-302",
+        "type": "REQUIRES_ROLLBACK_REVIEW",
+        "evidence_source_id": "SYN-SPROG-RELEASE-402",
+        "evidence_quote": "SYN-SPROG-RELEASE-402 REQUIRES_ROLLBACK_REVIEW SYN-SPROG-RUNBOOK-302."
+      }
+    ],
+    "aliases": [
+      "Entitlement Activation release evidence checklist",
+      "SPROG Entitlement Activation release evidence checklist"
+    ],
+    "mcp_provenance": {
+      "mode": "synthetic_fixture",
+      "intended_transport": "native_mcp",
+      "server_key": "sharepoint_native",
+      "server_connected": false,
+      "tool_name": null,
+      "tool_schema_version": null,
+      "native_locator": {
+        "resource_kind": "drive_item",
+        "site_id": "syn-site-sprog",
+        "drive_id": "syn-qe-library",
+        "item_id": "syn-sprog-release-402",
+        "library": "QE Documentation",
+        "file_name": "SPROG-Release-Evidence.md",
+        "version_label": "0.9",
+        "content_type": "text/markdown",
+        "etag": "synthetic-sprog-release-v09"
+      },
+      "native_url": null,
+      "retrieved_at": null,
+      "source_permissions_verified": false,
+      "content_complete": true,
+      "normalization_schema": "qei-document-v1",
+      "notice": "QEI-owned synthetic mapping fields, not a captured native MCP response. Public only because fictional."
+    }
+  }
+]

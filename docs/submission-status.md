@@ -2,7 +2,8 @@
 
 - Separate Week 2 GitHub repository: `lkalyanams29/qei-knowledge-intelligence-week2`.
 - Active application: Python/Streamlit with LangGraph, NetworkX and FAISS; synthetic cross-source corpus, citations, authority/freshness checks, mentor checklist, graph, paired retrieval and evaluation views.
-- Validation: all 32 Python ingestion/retrieval/safety and simulated Streamlit AppTest checks passed. Dependency compatibility and Python compilation checks passed. See the current project report and generated Python evaluation for measured results. Older JavaScript tests and model benchmarks are archived with the React version.
+- Validation: the suite now includes 42 Python ingestion/retrieval/safety, MCP fixture and simulated Streamlit AppTest checks. See the current project report and generated Python evaluation for measured results. Older JavaScript tests and model benchmarks are archived with the React version.
+- Native MCP data: 36 additional Jira/Confluence/SharePoint documentation fixtures, including normalized exports, readable source documents and a future connection/mapping guide. No native server has been connected or tested.
 - Project documentation: `project-report.md` covers the overview, corpus, framework, actual user prompt excerpts, model instruction, iterations, findings and limits.
 - Native Google Doc: pending. The Google Drive import connector is unavailable, and the local DOCX renderer requires LibreOffice, which is not installed. An unverified Word draft is kept outside the deliverables. The Markdown report is the reviewed text source.
 - Video aid: `demo/QEI_Week2_Walkthrough_Draft.mp4` is a 4-minute 5-second narrated screenshot walkthrough of the earlier React version, not a continuous recording or a demo of the migrated app. `demo-guide.md` now supplies the Streamlit live-recording plan.

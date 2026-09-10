@@ -14,6 +14,7 @@ python -m venv .venv
 # macOS/Linux: source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m data.mock_data
+python -m data.mcp_documents
 python scripts/ingest.py
 python -m streamlit run ui.py
 ```
@@ -37,6 +38,8 @@ Ask QE supports paired GraphRAG/vector answers, source citations, authority/fres
 data/
   mock_data.py          deterministic synthetic-data generator
   synthetic/*.json     seven source types across six projects
+  mcp_documents.py     richer Jira/Confluence/SharePoint fixture generator
+  mcp_samples/         normalized exports + human-readable Markdown documents
   index.json           generated local index; ignored by Git
 graph_builder.py       NetworkX graph, entity linking, ACL filters, traversal
 graph_rag.py           staged LangGraph workflow and citation policy
@@ -64,10 +67,13 @@ The primary app uses **Python + LangGraph + NetworkX + FAISS + Streamlit**, as r
 | Supplied Katalon CSV | 2,063 result rows → 244 documents | 144 tests, 96 runs, 4 project summaries; May 26–August 15, 2026 |
 | User design notes | 6 project profiles | Design intent, not approved implementation evidence |
 | Public documentation summaries | 4 documents | Tool guidance, not enterprise integration |
-| Generated synthetic exports | 72 documents, 90 links | 12 fictional artifacts for each of six projects |
-| Combined index | 326 documents / chunks, 4,360 recorded links | Kept separate by provenance and dataset labels |
+| Original synthetic exports | 72 documents, 90 links | 12 fictional artifacts for each of six projects |
+| Native-MCP documentation fixtures | 36 documents, 60 links | 12 Jira issues, 12 Confluence pages, 12 SharePoint documents |
+| Combined index | 362 documents / chunks, 4,420 recorded links | 108 synthetic records; provenance and datasets remain distinct |
 
-Synthetic projects: BSP Services, Salesforce, WebOps, MyKC, CXE and SPROG. The seven source types include invented requirements, designs, database mappings, pull requests, step definitions, Gherkin features, test cases, executions, discussions, decisions, owners and triage records. All invented people, outcomes and schemas are labeled fictional. Source URLs point to the real public JSON exports in this repository, not fake Jira or Slack URLs. Synthetic IDs use the `SYN-` namespace; no synthetic links are attached to actual CSV test IDs.
+Synthetic projects: BSP Services, Salesforce, WebOps, MyKC, CXE and SPROG. The seven source types include invented requirements, designs, database mappings, pull requests, step definitions, Gherkin features, test cases, executions, discussions, decisions, owners and triage records. All invented people, outcomes and schemas are labeled fictional. Source URLs point to actual JSON or Markdown source files in this repository, not fake Jira or Slack URLs. Synthetic IDs use the `SYN-` namespace; no synthetic links are attached to actual CSV test IDs.
+
+The additional Jira, Confluence and SharePoint collection includes four acceptance criteria per story, defect reproduction and expected outcomes, designs, runbooks, test strategies and pending release checklists. It is available as normalized JSON plus readable Markdown. It assumes **future native MCP connections**, but its metadata is a QEI-owned mapping contract, not an alleged vendor response. Endpoints/tool bindings remain unconfigured. Native-style synthetic issue keys such as `SYNBSP-201` resolve to the appropriate authorized source. See the [native MCP data guide](docs/native-mcp-data-guide.md).
 
 ## Retrieval and safety improvements
 
@@ -106,12 +112,13 @@ python compare.py
 python -m pip check
 ```
 
-See [paired evaluation and failures](docs/python-evaluation-results.md). On the recorded 10-question development set, graph source recall@8 was 100%, vector 71.7%, and hybrid 66.7%; all 15 safety/status cases passed. Gold-set precision is much lower because up to eight records are returned and the gold sets contain only minimum required sources. Verbatim citation support is measured separately; **the ≥95% semantic faithfulness objective is not yet independently measured**. Timings and corpus hash are included in the generated report.
+See [paired evaluation and failures](docs/python-evaluation-results.md). With the expanded corpus, the recorded 10-question development set produced graph source recall@8 of 100%, vector 66.7%, and hybrid 71.7%; all 15 safety/status cases passed. Gold-set precision is much lower because up to eight records are returned and the gold sets contain only minimum required sources. Verbatim citation support is measured separately; **the ≥95% semantic faithfulness objective is not yet independently measured**. Timings and corpus hash are included in the generated report.
 
 ## Deliverables
 
 - [Project report: prompts, iterations and learnings](docs/project-report.md)
 - [Reference alignment and implemented changes](docs/reference-enhancements.md)
+- [Synthetic documentation and native MCP mapping guide](docs/native-mcp-data-guide.md)
 - [Python deployment instructions](docs/deployment.md)
 - [Current submission status](docs/submission-status.md)
 

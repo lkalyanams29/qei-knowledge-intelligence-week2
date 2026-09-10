@@ -56,11 +56,17 @@ def build_graph(documents):
 def link_entities(question, documents):
     """No fuzzy first-match: exact IDs, then unique title/alias matches only."""
     ids = list(dict.fromkeys(x.upper() for x in ID_PATTERN.findall(question)))
-    by_upper = {sid.upper(): sid for sid in documents}
+    by_upper = {}
+    for sid, doc in documents.items():
+        for identifier in [sid, *doc.get("aliases", [])]:
+            if isinstance(identifier, str) and ID_PATTERN.fullmatch(identifier):
+                by_upper.setdefault(identifier.upper(), set()).add(sid)
     if ids:
         if any(sid not in by_upper for sid in ids):
             return [], "No authorized evidence for the requested identifier(s)."
-        return [by_upper[sid] for sid in ids], None
+        if any(len(by_upper[sid]) != 1 for sid in ids):
+            return [], "Ambiguous identifier. Choose a project or use a namespaced source ID."
+        return list(dict.fromkeys(next(iter(by_upper[sid])) for sid in ids)), None
     quoted = re.findall(r'"([^"]+)"', question)
     for alias in quoted:
         matches = [sid for sid, d in documents.items() if alias.casefold() in
@@ -86,11 +92,16 @@ def query_plan(question, options):
     if re.search(r"triage|cause|defect", q): kinds.add("defect")
     if re.search(r"owner|who|approv", q): kinds |= {"person", "decision", "pull_request"}
     if re.search(r"conflict|window|supersed|discuss|decision", q): kinds |= {"requirement", "decision", "discussion"}
+    if re.search(r"runbook|recovery|rollback", q): kinds.add("runbook")
+    if re.search(r"test strategy|test plan|qe strategy", q): kinds.add("test_strategy")
+    if re.search(r"release checklist|release evidence|release approval", q): kinds.add("release_checklist")
     required = []
     for pattern, kind in [(r"step.definition|helper", "step_definition"),
                           (r"database|\bdb\b|column|mapping", "database_mapping"),
                           (r"pull request|\bpr\b", "pull_request"),
-                          (r"acceptance|\bacs?\b", "requirement")]:
+                          (r"acceptance|\bacs?\b", "requirement"),
+                          (r"runbook", "runbook"), (r"test strategy|test plan", "test_strategy"),
+                          (r"release checklist", "release_checklist")]:
         if re.search(pattern, q): required.append(kind)
     return {"target_types": sorted(kinds), "required_types": required, "max_hops": options.max_hops,
             "max_nodes": options.max_nodes, "direction": "incoming + outgoing"}
